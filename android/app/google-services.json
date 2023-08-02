@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1080802022131",
+    "project_id": "cantocrave-9532a",
+    "storage_bucket": "cantocrave-9532a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080802022131:android:b80ef48016203bd9fbdd86",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080802022131-p51vh5tnf1e5qi70b3r7dul50muilcoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQv1lc24xqtZ4gA6Pt1aLxfYcgCHQOA4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080802022131-p51vh5tnf1e5qi70b3r7dul50muilcoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

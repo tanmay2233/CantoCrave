@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: GoogleFonts.firaSansCondensed().fontFamily,
+        fontFamily: GoogleFonts.zenOldMincho().fontFamily,
       ),
       title: 'Flutter Demo',
       routes: {

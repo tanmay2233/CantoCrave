@@ -1,171 +1,191 @@
-{
-  "Items": {
-    "1": {
+[
+    {
+      "categories": "1",
+      "isVeg": true,
       "name": "Veg Noodles",
       "price": 60,
-      "isVEeg": true,
-      "categories": "1"
+      "order": 1
     },
-    "2": {
+    {
+      "categories": "1",
+      "isVeg": true,
       "name": "Veg Schezwan Noodles",
       "price": 45,
-      "isVEeg": true,
-      "categories": "1"
+      "order": 2
     },
-    "3": {
+    {
+      "categories": "1",
+      "isVeg": false,
       "name": "Egg Noodles",
       "price": 50,
-      "isVEeg": false,
-      "categories": "1"
+      "order": 3
     },
-    "4": {
+    {
+      "categories": "1",
+      "isVeg": true,
       "name": "White Sauce Pasta",
       "price": 60,
-      "isVEeg": true,
-      "categories": "1"
+      "order": 4
     },
-    "5": {
+    {
+      "categories": "1",
+      "isVeg": true,
       "name": "Red Sauce Pasta",
       "price": 60,
-      "isVEeg": true,
-      "categories": "1"
+      "order": 5
     },
-    "6": {
+    {
+      "categories": "1",
+      "isVeg": false,
       "name": "Chicken White Sauce Pasta",
       "price": 75,
-      "isVEeg": false,
-      "categories": "1"
+      "order": 6
     },
-    "7": {
+    {
+      "categories": "1",
+      "isVeg": false,
       "name": "Chicken Red Sauce Pasta",
       "price": 60,
-      "isVEeg": false,
-      "categories": "1"
+      "order": 7
     },
-    "8": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "Veg Burger",
       "price": 45,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 8
     },
-    "9": {
+    {
+      "categories": "2",
+      "isVeg": false,
       "name": "Chicken Burger",
       "price": 60,
-      "isVEeg": false,
-      "categories": "2"
+      "order": 9
     },
-    "10": {
+    {
+      "categories": "2",
+      "isVeg": false,
       "name": "Cheese Chicken Burger",
       "price": 80,
-      "isVEeg": false,
-      "categories": "2"
+      "order": 10
     },
-    "11": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "Veg Cheese Burger",
       "price": 65,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 11
     },
-    "12": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "Paneer Sandwich",
       "price": 30,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 12
     },
-    "14": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "Veg Sandwich",
       "price": 25,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 13
     },
-    "15": {
+    {
+      "categories": "2",
+      "isVeg": false,
       "name": "Omlette Sandwich",
       "price": 30,
-      "isVEeg": false,
-      "categories": "2"
+      "order": 14
     },
-    "16": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "Veg Cheese Sandwich",
       "price": 40,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 15
     },
-    "17": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "Paneer Cheese Sandwich",
       "price": 45,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 16
     },
-    "18": {
+    {
+      "categories": "2",
+      "isVeg": false,
       "name": "Omlette Cheese Sandwich",
       "price": 45,
-      "isVEeg": false,
-      "categories": "2"
+      "order": 17
     },
-    "19": {
+    {
+      "categories": "3",
+      "isVeg": true,
       "name": "Plain Maggie",
       "price": 20,
-      "isVEeg": true,
-      "categories": "3"
+      "order": 18
     },
-    "20": {
+    {
+      "categories": "3",
+      "isVeg": false,
       "name": "Egg Maggie",
       "price": 30,
-      "isVEeg": false,
-      "categories": "3"
+      "order": 19
     },
-    "21": {
+    {
+      "categories": "3",
+      "isVeg": false,
       "name": "Double Egg Maggie",
       "price": 35,
-      "isVEeg": false,
-      "categories": "3"
+      "order": 20
     },
-    "22": {
+    {
+      "categories": "3",
+      "isVeg": true,
       "name": "Cheese Maggie",
       "price": 35,
-      "isVEeg": true,
-      "categories": "3"
+      "order": 21
     },
-    "23": {
+    {
+      "categories": "3",
+      "isVeg": true,
       "name": "Veg Maggie",
       "price": 25,
-      "isVEeg": true,
-      "categories": "3"
+      "order": 22
     },
-    "24": {
+    {
+      "categories": "3",
+      "isVeg": false,
       "name": "Boiled Egg",
       "price": 15,
-      "isVEeg": false,
-      "categories": "3"
+      "order": 23
     },
-    "25": {
+    {
+      "categories": "3",
+      "isVeg": false,
       "name": "Plain Omlette",
       "price": 20,
-      "isVEeg": false,
-      "categories": "3"
+      "order": 24
     },
-    "26": {
+    {
+      "categories": "3",
+      "isVeg": false,
       "name": "Masala Omlette",
       "price": 25,
-      "isVEeg": false,
-      "categories": "3"
+      "order": 25
     },
-    "27": {
+    {
+      "categories": "3",
+      "isVeg": false,
       "name": "Cheese Omlette",
       "price": 40,
-      "isVEeg": false,
-      "categories": "3"
+      "order": 26
     },
-    "28": {
+    {
+      "categories": "2",
+      "isVeg": true,
       "name": "French Fries",
       "price": 30,
-      "isVEeg": true,
-      "categories": "2"
+      "order": 27
     }
-  },
-  "categories": {
-    "1": { "name": "Noodles & Pastas" },
-    "2": { "name": "Burgers & Sandwiches" },
-    "3": { "name": "Maggies & Omlettes" }
-  }
-}
+]

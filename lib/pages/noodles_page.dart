@@ -23,9 +23,9 @@ class _NoodlesPageState extends State<NoodlesPage> {
     super.initState();
   }
 
-  DocumentReference _getCategoryReference(String categoryID) {
-    return FirebaseFirestore.instance.doc('/Menu_Categories/$categoryID');
-  }
+  // DocumentReference _getCategoryReference(String categoryID) {
+  //   return FirebaseFirestore.instance.doc('/Menu_Categories/$categoryID');
+  // }
 
   Future<List<Map<String, dynamic>>> getImageUrls() async {
     final List<String> imageUrls = await Future.wait([
@@ -100,13 +100,13 @@ class _NoodlesPageState extends State<NoodlesPage> {
 
                 return Column(
                   children: [
-                    SizedBox(height: size.height * 0.035),
-                    
+
+                    SizedBox(height: size.height * 0.03),
 // Retrieve data from firebase
 
                     StreamBuilder<QuerySnapshot>(
 
-                    stream: FirebaseFirestore.instance.collection('Menu_Items').where('Category', isEqualTo: _getCategoryReference('1')).snapshots(),
+                    stream: FirebaseFirestore.instance.collection('Menu_Items').where("categories", isEqualTo: "1").snapshots(),
                     builder: (context, snapshot) {
                         if (snapshot.hasError) {
                           return Center(child: Text('Error: ${snapshot.error}'));
@@ -147,7 +147,7 @@ class _NoodlesPageState extends State<NoodlesPage> {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              documents[index]['Name'],
+                                              documents[index]['name'],
                                               maxLines: 2,
                                               style: TextStyle(
                                                   color: MyTheme.fontColor),
@@ -183,7 +183,7 @@ class _NoodlesPageState extends State<NoodlesPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          '₹ ${documents[index]['Price']}',
+                                          '₹ ${documents[index]['price']}',
                                           style: const TextStyle(
                                               color: Colors.white),
                                         ),

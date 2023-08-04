@@ -1,6 +1,8 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/pages/beverages_page.dart';
+import 'package:flutter_firebase/pages/chinese_page.dart';
+import 'package:flutter_firebase/pages/maggie_omelette_page.dart';
 import 'package:flutter_firebase/pages/bottomBar_page.dart';
 import 'package:flutter_firebase/pages/burgers&sandwiches_page.dart';
 import 'package:flutter_firebase/pages/cart_page.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_firebase/pages/home_page.dart';
 import 'package:flutter_firebase/pages/login_page.dart';
 import 'package:flutter_firebase/pages/noodles_page.dart';
 import 'package:flutter_firebase/pages/profile_page.dart';
+import 'package:flutter_firebase/pages/rolls_page.dart';
 import 'package:flutter_firebase/routes/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,7 +28,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -39,14 +41,15 @@ class _MyAppState extends State<MyApp> {
         MyRoutes.cartRoute: (context) => CartPage(),
         MyRoutes.profileRoute: (context) => ProfilePage(),
         MyRoutes.bottomBar: (context) => BottomBarPage(),
-        MyRoutes.burgerSandwichRoute:(context) => BurgerSandwichPage(),
-        MyRoutes.noodlesRoute:(context) => NoodlesPage(),
-        MyRoutes.beveragesRoute:(context) => BeveragesPage(),
-        // MyRoutes.loadPageRoute: (context) => LoadPage(),
+        MyRoutes.burgerSandwichRoute: (context) => BurgerSandwichPage(),
+        MyRoutes.noodlesRoute: (context) => NoodlesPage(),
+        MyRoutes.maggieOmeletteRoute: (context) => MaggieOmelettePage(),
+        MyRoutes.chinesePageRoute: (context) => ChinesePage(),
+        MyRoutes.beveragesRoute: (context) => BeveragesPage(),
+        MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
       },
-      // initialRoute: MyRoutes.loginRoute,
-      home: const WidgetTree(),
-      
+      initialRoute: MyRoutes.homeRoute,
+      // home: const WidgetTree(),
     );
   }
 }

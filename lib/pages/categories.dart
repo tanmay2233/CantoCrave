@@ -6,9 +6,9 @@ import '../Theme/themes.dart';
 class CategoriesPage extends StatelessWidget {
 
     final List<Map<String, dynamic>> _categoryCardMapList = [
-      {'image': 'images/food_items/noodles.png', 
-      'text': 'Noodles & Pastas',
-      'route': MyRoutes.noodlesRoute
+      {'image': 'images/food_items/Maggie-Omelette.jpeg', 
+      'text': 'Maggie & Omelettes',
+      'route': MyRoutes.maggieOmeletteRoute
       },
 
       {'image': 'images/food_items/burger.png', 
@@ -16,10 +16,26 @@ class CategoriesPage extends StatelessWidget {
       'route': MyRoutes.burgerSandwichRoute
       },
 
+      {'image': 'images/food_items/noodles.png', 
+      'text': 'Noodles & Pastas',
+      'route': MyRoutes.noodlesRoute
+      },
+
+      {'image': 'images/food_items/chinese.png', 
+      'text': 'Chinese',
+      'route': MyRoutes.chinesePageRoute
+      },
+
+      {
+      'image': 'images/food_items/rolls.png',
+      'text': 'Rolls & Curries',
+      'route': MyRoutes.rollsPageRoute
+      },
+
       {'image': 'images/food_items/beverages.png', 
       'text': 'Beverages',
       'route': MyRoutes.beveragesRoute
-      },
+      }
     ];
 
   @override
@@ -60,7 +76,8 @@ class CategoriesPage extends StatelessWidget {
                       padding: EdgeInsets.all(
                         MediaQuery.of(context).size.width * 0.006),
                       child: Text(_categoryCardMapList[index]['text']!, 
-                        style: TextStyle(color: MyTheme.cardColor)),
+                        style: TextStyle(color: MyTheme.cardColor)
+                      ),
                     )
                   ],
                 ),

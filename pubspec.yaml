@@ -53,8 +53,11 @@ flutter:
   assets:
     - images/
     - images/food_items/burger.png
+    - images/food_items/Maggie-Omelette.jpeg
     - images/food_items/noodles.png
     - images/food_items/beverages.png
+    - images/food_items/chinese.png
+    - images/food_items/rolls.png
 
 flutter_icons:
   image_path: "images/logo.png"

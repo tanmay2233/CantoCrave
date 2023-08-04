@@ -8,5 +8,8 @@ class MyRoutes{
   static String loadPageRoute = "/loadPage";
   static String burgerSandwichRoute = "/burgerSandwichPage";
   static String noodlesRoute = "/noodlesPage";
+  static String maggieOmeletteRoute = "/maggieOmelettePage";
   static String beveragesRoute = "/beveragesPage";
+  static String chinesePageRoute = "/chinesePage";
+  static String rollsPageRoute = "/rollsPage";
 }

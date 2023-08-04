@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
     'images/food_items/noodles.png',
     'images/food_items/burger.png',
     'images/food_items/beverages.png',
+    'images/food_items/Maggie-Omelette.jpeg'
   ];
   @override
   Widget build(BuildContext context) {

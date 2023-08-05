@@ -40,7 +40,7 @@ class _BottomBarPage extends State<BottomBarPage> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor]),
+              colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor]),
           ),
         ),
       ),
@@ -49,17 +49,17 @@ class _BottomBarPage extends State<BottomBarPage> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
-                size: MediaQuery.of(context).size.width * 0.08),
+                size: MediaQuery.of(context).size.width * 0.07),
             label: "Home",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box,
-                size: MediaQuery.of(context).size.width * 0.08),
+                size: MediaQuery.of(context).size.width * 0.07),
             label: "Search",
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.shopping_cart,
-                size: MediaQuery.of(context).size.width * 0.08),
+                size: MediaQuery.of(context).size.width * 0.07),
             label: "Cart",
           )
         ],

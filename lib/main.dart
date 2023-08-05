@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
         MyRoutes.beveragesRoute: (context) => BeveragesPage(),
         MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
       },
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.bottomBar,
       // home: const WidgetTree(),
     );
   }

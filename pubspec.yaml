@@ -18,7 +18,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  shared_preferences: ^2.2.0
   google_fonts: ^5.1.0
   card_swiper: ^3.0.1
   firebase_core: ^2.15.0
@@ -58,6 +57,8 @@ flutter:
     - images/food_items/beverages.png
     - images/food_items/chinese.png
     - images/food_items/rolls.png
+    - images/veg.png
+    - images/nonveg.png
 
 flutter_icons:
   image_path: "images/logo.png"

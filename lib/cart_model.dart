@@ -3,6 +3,7 @@ class CartModel {
   final double price;
   int quantity;
   static List<CartModel> _cartItems = [];
+  static double _cartTotal = 0;
 
   CartModel(this.name, this.price, this.quantity);
 
@@ -12,21 +13,20 @@ class CartModel {
     for (var item in _cartItems) {
       if (item.name == itemName) {
         item.quantity++;
+        _cartTotal += item.price;
+        itemAlreadyInCart = true; 
         break;
       }
     }
 
     if (!itemAlreadyInCart) {
       _cartItems.add(CartModel(itemName, itemPrice, 1));
+      _cartTotal += itemPrice;
     }
   }
 
   static double getCartTotal(){
-    double total = 0;
-    for(var item in _cartItems){
-      total += item.price;
-    }
-    return total;
+    return _cartTotal;
   }
 
   static int getCartSize(){
@@ -43,16 +43,21 @@ class CartModel {
   }
 
   static void removeItem(String itemName) {
-    for(var item in _cartItems){
-      if(item.name == itemName){
+    bool itemAlreadyInCart = false;
+
+    for (var item in _cartItems) {
+      if (item.name == itemName) {
         item.quantity--;
-        if(item.quantity == 0){
+
+        if (item.quantity == 0) {
           _cartItems.remove(item);
         }
+
+        _cartTotal -= item.price;
+        itemAlreadyInCart = true;
+        break;
       }
-      break;
     }
-    print(_cartItems.length);
   }
 
 }

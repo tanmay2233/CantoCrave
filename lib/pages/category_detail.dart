@@ -87,8 +87,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
               SizedBox(height: size.height * 0.03),
               StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
-                    .collection('Menu_Items')
-                    .where('categories', isEqualTo: widget.category).snapshots(),
+                    .collection('Menu_Items').where('categories', isEqualTo: widget.category).snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
@@ -130,8 +129,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                           style: TextStyle(
                                               color: MyTheme.fontColor),
                                         )),
-                                        documents[index]['isVeg']? Image.asset("images/veg.png"):
-                                        Image.asset("images/nonveg.png")
+                                        // documents[index]['isVeg']? Image.asset("images/veg.png", width: size.width*0.03):
+                                        // Image.asset("images/nonveg.png",width: size.width * 0.03)
                                       ],
                                     ),
                                   ),

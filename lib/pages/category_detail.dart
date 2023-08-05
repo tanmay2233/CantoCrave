@@ -96,7 +96,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                         Expanded(
                                             child: Text(
                                           documents[index]['name'],
-                                          maxLines: 2,
+                                          maxLines: 3,
                                           style: TextStyle(
                                               color: MyTheme.fontColor),
                                         )),
@@ -131,8 +131,9 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                         style: const TextStyle(
                                             color: Colors.white),
                                       ),
-                                      Icon(Icons.add_circle,
-                                          color: MyTheme.iconColor)
+                                      InkWell(
+                                        child: Icon(Icons.add_circle, color: MyTheme.iconColor),
+                                      )
                                     ],
                                   )),
                             ],

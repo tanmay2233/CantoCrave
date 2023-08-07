@@ -32,7 +32,6 @@ class _BottomBarPage extends State<BottomBarPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
-        width: MediaQuery.of(context).size.width * 0.47,
         backgroundColor: MyTheme.canvasDarkColor,
       ),
       appBar: AppBar(

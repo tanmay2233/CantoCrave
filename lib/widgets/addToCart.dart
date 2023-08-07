@@ -7,10 +7,11 @@ import '../Theme/themes.dart';
 import '../cart_model.dart';
 
 class DecreaseQtyButton extends StatefulWidget {
-  final String name;
+  final String name, image;
   double price ;
+  bool isVeg;
 
-  DecreaseQtyButton({required this.name, required this.price});
+  DecreaseQtyButton({required this.name, required this.price, required this.image, required this.isVeg});
 
   @override
   State<DecreaseQtyButton> createState() => _DecreaseQtyButtonState();
@@ -33,7 +34,7 @@ class _DecreaseQtyButtonState extends State<DecreaseQtyButton> {
             InkWell(onTap: (){
               setState(() {
               value.addToCart(widget.name,
-                widget.price.toDouble(), 1);
+                widget.price.toDouble(), 1, widget.image, widget.isVeg);
               });
               }, 
               child: Icon(CupertinoIcons.add_circled_solid, color: MyTheme.iconColor)
@@ -52,7 +53,7 @@ class _DecreaseQtyButtonState extends State<DecreaseQtyButton> {
                       icon: IconButton(
                           onPressed: () =>
                               value.addToCart(widget.name,
-                                    widget.price.toDouble(), 1),
+                                    widget.price.toDouble(), 1, widget.image, widget.isVeg),
                           icon: Icon(Icons.add_circle_outline_sharp))),
                 ])
         ],

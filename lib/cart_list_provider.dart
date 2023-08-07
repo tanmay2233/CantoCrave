@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/cupertino.dart';
 
 import 'cart_model.dart';
@@ -8,7 +10,7 @@ class CartListProvider extends ChangeNotifier{
 
   double cartTotal = 0;
 
-  void addToCart(String itemName, double itemPrice, int quantity) {
+  void addToCart(String itemName, double itemPrice, int quantity, String image, bool isVeg) {
     bool itemAlreadyInCart = false;
 
     for (var item in cartList) {
@@ -21,7 +23,7 @@ class CartListProvider extends ChangeNotifier{
     }
 
     if (!itemAlreadyInCart) {
-      cartList.add(CartModel(itemName, itemPrice, 1));
+      cartList.add(CartModel(itemName, itemPrice, 1, image, isVeg));
       cartTotal += itemPrice;
     }
     notifyListeners();

@@ -1,15 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/widgets/cart_total.dart';
-import 'package:flutter_firebase/widgets/decreaseQtyButton.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_firebase/widgets/addToCart.dart';
 
 import '../Theme/themes.dart';
-import '../routes/routes.dart';
 
 class CategoryDetailPage extends StatefulWidget {
 
@@ -65,19 +61,17 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
               children: [
                 SizedBox(height: size.height * 0.03),
                 StreamBuilder<QuerySnapshot>(
-                  stream: FirebaseFirestore.instance
-                      .collection('Menu_Items')
-                      .where('categories', isEqualTo: widget.category)
-                      .snapshots(),
+                  stream: FirebaseFirestore.instance.collection('Menu_Items')
+                      .where('categories', isEqualTo: widget.category).snapshots(),
+
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
                       return Center(child: Text('Error: ${snapshot.error}'));
                     }
     
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
+                      return Center(child: CircularProgressIndicator(color: MyTheme.fontColor,));
                     }
-    
                     List<QueryDocumentSnapshot> documents = snapshot.data!.docs;
     
                     return Expanded(
@@ -133,7 +127,9 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                       ),
                                     ),
                                     subtitle: DecreaseQtyButton(name: documents[index]['name'], 
-                                      price: documents[index]['price'].toDouble())
+                                      price: documents[index]['price'].toDouble(), 
+                                      image: documents[index]['image'],
+                                      isVeg: documents[index]['isVeg'],)
                                   ),
                               ],
                             )),

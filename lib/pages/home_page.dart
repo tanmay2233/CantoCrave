@@ -68,8 +68,10 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.07),
                 Text("Categories",
-                    style: TextStyle(color: MyTheme.fontColor, fontSize: 30)),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    style: TextStyle(color: MyTheme.fontColor, fontSize: MediaQuery.of(context).size.width*0.085,
+                    fontWeight: FontWeight.bold
+                    )),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.018),
                 CategoriesPage(),
               ],
             ),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class MyTheme {
   static Color canvasLightColor = Color(0x0038394e).withOpacity(1);
-  static Color canvasDarkColor = Color(0x00161524).withOpacity(1);
+  static Color canvasDarkColor = Color.fromARGB(255, 15, 15, 15);
   static Color iconColor = Colors.white70;
   static Color selectedIconColor = Color.fromARGB(255, 255, 206, 8);
   static Color fontColor = Color.fromARGB(255, 230, 193, 46);

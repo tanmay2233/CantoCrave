@@ -8,7 +8,6 @@ import 'package:flutter_firebase/widgets/addToCart.dart';
 import '../Theme/themes.dart';
 
 class CategoryDetailPage extends StatefulWidget {
-
   final String title;
   final String category;
 
@@ -87,9 +86,14 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                             child: GridTile(
                                 child: Column(
                               children: [
-                                Image(
-                                  image: NetworkImage(documents[index]['image']),
-                                  height: size.height * 0.12,
+                                Stack(
+                                  alignment: Alignment.topRight,
+                                  children: [
+                                    Image(
+                                      image: NetworkImage(documents[index]['image']),
+                                      height: size.height * 0.12,
+                                    ),
+                                  ],
                                 ),
                                 GridTileBar(
                                     title: Expanded(

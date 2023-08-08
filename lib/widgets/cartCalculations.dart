@@ -25,10 +25,10 @@ class CartCalculations extends StatelessWidget {
                 children: [
                   Text("Subtotal",
                       style: TextStyle(
-                          fontSize: size.width * 0.04, color: MyTheme.iconColor)),
+                          fontSize: size.width * 0.035, color: MyTheme.iconColor)),
                   Text("₹ ${value.getCartTotal()}",
                       style: TextStyle(
-                          fontSize: size.width * 0.04, color: MyTheme.fontColor))
+                          fontSize: size.width * 0.035, color: MyTheme.fontColor))
                 ],
               ),
               Row(
@@ -36,10 +36,10 @@ class CartCalculations extends StatelessWidget {
                 children: [
                   Text("Taxes",
                       style: TextStyle(
-                          fontSize: size.width * 0.04, color: MyTheme.iconColor)),
+                          fontSize: size.width * 0.035, color: MyTheme.iconColor)),
                   Text("₹ 0.0",
                       style: TextStyle(
-                          fontSize: size.width * 0.04, color: MyTheme.fontColor))
+                          fontSize: size.width * 0.035, color: MyTheme.fontColor))
                 ],
               ),
               Divider(
@@ -50,37 +50,16 @@ class CartCalculations extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Total",
-                      style: TextStyle(
-                          fontSize: size.width * 0.05,
-                          fontWeight: FontWeight.bold,
-                          color: Vx.white)),
+                    style: TextStyle(
+                      fontSize: size.width * 0.04,
+                      fontWeight: FontWeight.bold,
+                      color: Vx.white)),
                   Text("₹ ${value.getCartTotal()}",
-                      style: TextStyle(
-                          fontSize: size.width * 0.05,
-                          fontWeight: FontWeight.bold,
-                          color: MyTheme.cardColor))
+                    style: TextStyle(
+                      fontSize: size.width * 0.04,
+                      fontWeight: FontWeight.bold,
+                      color: MyTheme.cardColor))
                 ],
-              ),
-              InkWell(
-                onTap: (){},
-                child: Container(
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Vx.blue100,
-                    border: Border.all(),
-                    borderRadius: BorderRadius.circular(size.width*0.05),
-                    gradient: const LinearGradient(colors: [
-                      Color.fromARGB(255, 255, 208, 0),
-                      Color.fromARGB(255, 252, 248, 50)
-                    ])
-                  ),
-                  width: size.width*0.5,
-                  height: size.height*0.05,
-                  child: Text("Checkout", style: TextStyle(color: MyTheme.canvasDarkColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: size.width*0.037
-                  ),)
-                ),
               )
             ],
           ),

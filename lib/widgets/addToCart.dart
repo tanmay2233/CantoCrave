@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:provider/provider.dart';
 import '../Theme/themes.dart';
-import '../cart_model.dart';
 
 class DecreaseQtyButton extends StatefulWidget {
   final String name, image;

@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/pages/categories.dart';
+import 'package:flutter_firebase/widgets/topSellers.dart';
 import '../Theme/themes.dart';
 import 'package:card_swiper/card_swiper.dart';
 
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -73,6 +75,16 @@ class _HomePageState extends State<HomePage> {
                     )),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.018),
                 CategoriesPage(),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                Text("Top Sellers",
+                    style: TextStyle(color: MyTheme.fontColor,
+                        fontSize: MediaQuery.of(context).size.width * 0.065,
+                        fontWeight: FontWeight.bold)),
+
+                SizedBox(height: size.height*0.025),
+
+                TopSellers(),
+                SizedBox(height: size.height*0.04,)
               ],
             ),
           ),

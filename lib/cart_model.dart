@@ -4,6 +4,7 @@ class CartModel {
   bool isVeg = false;
   final double price;
   int quantity;
+  bool isFavourite = false;
 
   CartModel(
     this.name,

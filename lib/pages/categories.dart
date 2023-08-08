@@ -75,8 +75,15 @@ class CategoriesPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(
                         MediaQuery.of(context).size.width * 0.006),
-                      child: Text(_categoryCardMapList[index]['text']!, 
-                        style: TextStyle(color: MyTheme.cardColor)
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.6)
+                        ),
+                        child: Text(_categoryCardMapList[index]['text']!, 
+                          style: TextStyle(color: MyTheme.cardColor,),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     )
                   ],

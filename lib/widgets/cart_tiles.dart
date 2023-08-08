@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/widgets/cartCalculations.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +16,7 @@ class CartListTiles extends StatelessWidget {
           builder: (context, value, child) => 
           (value.cartList.isNotEmpty) ?
           CustomScrollView(
+            
             slivers: [
               SliverToBoxAdapter(
                 child: Column(
@@ -54,12 +54,12 @@ class CartListTiles extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(
                                           size.width * 0.07),
                                       border: Border.all(
-                                          color: Color.fromARGB(
+                                          color: const Color.fromARGB(
                                               179, 172, 169, 169))),
                                   child: Padding(
                                     padding: EdgeInsets.all(size.width * 0.02),
                                     child: SizedBox(
-                                        height: size.height * 0.1,
+                                        height: size.height * 0.098,
                                         child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,
@@ -151,37 +151,22 @@ class CartListTiles extends StatelessWidget {
                                                   children: [
                                                     InkWell(
                                                         onTap: () => value
-                                                            .removeItem(value
-                                                                .cartList[index]
-                                                                .name),
+                                                            .removeItem(value.cartList[index].name),
                                                         child: Icon(
                                                             Icons.remove,
-                                                            color: MyTheme
-                                                                .iconColor,
-                                                            size: size.width *
-                                                                0.055)),
+                                                            color: MyTheme.iconColor,
+                                                            size: size.width * 0.055)),
                                                     Text(
-                                                      value.cartList[index]
-                                                          .quantity
-                                                          .toString(),
+                                                      value.cartList[index].quantity.toString(),
                                                       style: TextStyle(
                                                           color: Vx.white),
                                                     ),
                                                     InkWell(
                                                         onTap: () =>
                                                             value.addToCart(
-                                                                value
-                                                                    .cartList[
-                                                                        index]
-                                                                    .name,
-                                                                value
-                                                                    .cartList[
-                                                                        index]
-                                                                    .price,
-                                                                value
-                                                                    .cartList[
-                                                                        index]
-                                                                    .quantity,
+                                                                value.cartList[index].name,
+                                                                value.cartList[index].price,
+                                                                value.cartList[index].quantity,
                                                                 value
                                                                     .cartList[
                                                                         index]
@@ -203,8 +188,9 @@ class CartListTiles extends StatelessWidget {
                                 ),
                               ),
                             )),
-                            SliverToBoxAdapter(
-                              child: CartCalculations(),
+                            const SliverToBoxAdapter(
+                                child:
+                                  CartCalculations()
                             )
             ],
           ) 

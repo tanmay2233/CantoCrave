@@ -66,5 +66,4 @@ class CartListProvider extends ChangeNotifier{
     return 0;
   }
 
-
 }

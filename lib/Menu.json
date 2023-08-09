@@ -5,7 +5,8 @@
     "isVeg": true,
     "name": "Veg Noodles",
     "price": 60,
-    "order": 1
+    "order": 1,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_scz_noodles.png?alt=media&token=5a3889f8-2d19-4765-9e6b-8ec279b23114",
@@ -13,7 +14,8 @@
     "isVeg": true,
     "name": "Veg Schezwan Noodles",
     "price": 45,
-    "order": 2
+    "order": 2,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/egg_noodles.png?alt=media&token=90bf1d49-78e2-4392-9249-5dd5da867ce5",
@@ -21,7 +23,8 @@
     "isVeg": false,
     "name": "Egg Noodles",
     "price": 50,
-    "order": 3
+    "order": 3,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/white_sauce_pasta.png?alt=media&token=900bba88-3a22-42db-9e15-45d1d33cb98f",
@@ -29,7 +32,8 @@
     "isVeg": true,
     "name": "White Sauce Pasta",
     "price": 60,
-    "order": 4
+    "order": 4,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/red_sauce_pasta.png?alt=media&token=681f6929-646c-426f-be99-666ddfc7db92",
@@ -37,7 +41,8 @@
     "isVeg": true,
     "name": "Red Sauce Pasta",
     "price": 60,
-    "order": 5
+    "order": 5,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_white_sauce_pasta.png?alt=media&token=c654b617-593c-4395-970a-94a8442d0230",
@@ -45,7 +50,8 @@
     "isVeg": false,
     "name": "Chicken White Sauce Pasta",
     "price": 75,
-    "order": 6
+    "order": 6,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_red_sauce_pasta.png?alt=media&token=0c4ebb67-430a-4c0a-9383-b6bff0957e38",
@@ -53,7 +59,8 @@
     "isVeg": false,
     "name": "Chicken Red Sauce Pasta",
     "price": 60,
-    "order": 7
+    "order": 7,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_burger.png?alt=media&token=841691ec-6863-4d03-82d6-a030b1e85288",
@@ -61,7 +68,8 @@
     "isVeg": true,
     "name": "Veg Burger",
     "price": 45,
-    "order": 8
+    "order": 8,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_burger.png?alt=media&token=59efd538-5eff-4957-b4a0-aba2b73dc596",
@@ -69,7 +77,8 @@
     "isVeg": false,
     "name": "Chicken Burger",
     "price": 60,
-    "order": 9
+    "order": 9,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_cheese_burger.png?alt=media&token=42d50060-df61-4a36-a036-631129a5166a",
@@ -77,7 +86,8 @@
     "isVeg": false,
     "name": "Cheese Chicken Burger",
     "price": 80,
-    "order": 10
+    "order": 10,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_cheese_burger.png?alt=media&token=cb88ea69-0eb5-4c9c-b4c2-54dbaa156c8e",
@@ -85,7 +95,8 @@
     "isVeg": true,
     "name": "Veg Cheese Burger",
     "price": 65,
-    "order": 11
+    "order": 11,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_sandwich.png?alt=media&token=c403fa0a-e35a-4c6d-8ee7-92809979d869",
@@ -93,7 +104,8 @@
     "isVeg": true,
     "name": "Paneer Sandwich",
     "price": 30,
-    "order": 12
+    "order": 12,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_sandwich.png?alt=media&token=d938dfb8-fdb7-4452-bb3e-0d0f6152a676",
@@ -101,7 +113,8 @@
     "isVeg": true,
     "name": "Veg Sandwich",
     "price": 25,
-    "order": 13
+    "order": 13,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/omlette_sandwich.png?alt=media&token=b39bf170-9a4a-4f11-9b64-68c7f8950758",
@@ -109,7 +122,8 @@
     "isVeg": false,
     "name": "Omlette Sandwich",
     "price": 30,
-    "order": 14
+    "order": 14,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_cheese_sandwich.png?alt=media&token=1c507896-0c6c-4d83-b0db-c770279fca6a",
@@ -117,7 +131,8 @@
     "isVeg": true,
     "name": "Veg Cheese Sandwich",
     "price": 40,
-    "order": 15
+    "order": 15,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_cheese_sandwich.png?alt=media&token=1167123f-923e-48db-98db-9f92ab14b858",
@@ -125,7 +140,8 @@
     "isVeg": true,
     "name": "Paneer Cheese Sandwich",
     "price": 45,
-    "order": 16
+    "order": 16,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/omlette_cheese_sandwich.png?alt=media&token=b88b6dd4-b664-4872-9d9b-dec07b910d95",
@@ -133,7 +149,8 @@
     "isVeg": false,
     "name": "Omlette Cheese Sandwich",
     "price": 45,
-    "order": 17
+    "order": 17,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/plain_maggie.png?alt=media&token=081308c6-587a-455e-89e0-86344d5bdf62",
@@ -141,7 +158,8 @@
     "isVeg": true,
     "name": "Plain Maggie",
     "price": 20,
-    "order": 18
+    "order": 18,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/double_egg_maggie.png?alt=media&token=96f3fbfc-bc26-4e37-89d2-be1597c27032",
@@ -149,7 +167,8 @@
     "isVeg": false,
     "name": "Egg Maggie",
     "price": 30,
-    "order": 19
+    "order": 19,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/double_egg_maggie.png?alt=media&token=96f3fbfc-bc26-4e37-89d2-be1597c27032",
@@ -157,7 +176,8 @@
     "isVeg": false,
     "name": "Double Egg Maggie",
     "price": 35,
-    "order": 20
+    "order": 20,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/cheese_maggie.png?alt=media&token=8fe07274-477b-4581-973e-e35668324c94",
@@ -165,7 +185,8 @@
     "isVeg": true,
     "name": "Cheese Maggie",
     "price": 35,
-    "order": 21
+    "order": 21,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_maggie.png?alt=media&token=2875771b-515d-4538-9a17-2b67397b69be",
@@ -173,7 +194,8 @@
     "isVeg": true,
     "name": "Veg Maggie",
     "price": 25,
-    "order": 22
+    "order": 22,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/boiled_eggs.png?alt=media&token=b2f43e4c-7dd4-4486-84c3-d76625e96166",
@@ -181,7 +203,8 @@
     "isVeg": false,
     "name": "Boiled Egg",
     "price": 15,
-    "order": 23
+    "order": 23,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/plain_omlette.png?alt=media&token=479eae95-f4a7-475e-9d54-efe975b03f4f",
@@ -189,7 +212,8 @@
     "isVeg": false,
     "name": "Plain Omlette",
     "price": 20,
-    "order": 24
+    "order": 24,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/masala_omlette.png?alt=media&token=d3542858-9ee9-4b8d-bf4f-9a03930e9120",
@@ -197,7 +221,8 @@
     "isVeg": false,
     "name": "Masala Omlette",
     "price": 25,
-    "order": 25
+    "order": 25,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/cheese_omlette.png?alt=media&token=2a4b72e2-2a2f-4cac-bfed-f0bdef483c7e",
@@ -205,7 +230,8 @@
     "isVeg": false,
     "name": "Cheese Omlette",
     "price": 40,
-    "order": 26
+    "order": 26,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/french_fries.png?alt=media&token=fd45f174-1ac2-4f89-824c-d883e92a9e19",
@@ -213,7 +239,8 @@
     "isVeg": true,
     "name": "French Fries",
     "price": 30,
-    "order": 27
+    "order": 27,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/gobi_chilly.png?alt=media&token=3380f5f5-ce5c-44eb-9a1c-0e71cb8d3d19",
@@ -221,7 +248,8 @@
     "isVeg": true,
     "name": "Gobi Chilly",
     "price": 45,
-    "order": 28
+    "order": 28,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/gobi_manchurian.png?alt=media&token=cd104b7a-9311-4ac7-a1be-42d4fd611287",
@@ -229,7 +257,8 @@
     "isVeg": true,
     "name": "Gobi Manchurian",
     "price": 45,
-    "order": 29
+    "order": 29,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/egg_chilly.png?alt=media&token=d8d2adc2-670f-4b68-84ee-1ae4f6fa2155",
@@ -237,7 +266,8 @@
     "isVeg": false,
     "name": "Egg Chilly",
     "price": 50,
-    "order": 30
+    "order": 30,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_chilly.png?alt=media&token=cf6ef2e2-a839-4245-9824-5402ae79f84f",
@@ -245,7 +275,8 @@
     "isVeg": false,
     "name": "Chicken Chilly",
     "price": 75,
-    "order": 31
+    "order": 31,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_pepper_fry.png?alt=media&token=5d092c46-af06-4a69-b57a-d7443c2bfb69",
@@ -253,7 +284,8 @@
     "isVeg": false,
     "name": "Chicken Pepper Fry",
     "price": 75,
-    "order": 32
+    "order": 32,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_manchurian.png?alt=media&token=52f29943-2764-4f73-b297-97579bc32953",
@@ -261,7 +293,8 @@
     "isVeg": false,
     "name": "Chicken Manchurian",
     "price": 75,
-    "order": 33
+    "order": 33,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_chilly.png?alt=media&token=4603802b-9ce6-4b3c-8ac1-4f372aa3c2c6",
@@ -269,7 +302,8 @@
     "isVeg": true,
     "name": "Paneer Chilly",
     "price": 60,
-    "order": 34
+    "order": 34,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_pepper_fry.png?alt=media&token=22a536be-56e2-4e89-ada8-348ebec5e364",
@@ -277,7 +311,8 @@
     "isVeg": true,
     "name": "Paneer Pepper Fry",
     "price": 60,
-    "order": 35
+    "order": 35,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_manchurian.png?alt=media&token=56948861-50cd-491c-b7ff-6234048dd4d8",
@@ -285,7 +320,8 @@
     "isVeg": true,
     "name": "Paneer Manchurian",
     "price": 60,
-    "order": 36
+    "order": 36,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chilly_baby_corn.png?alt=media&token=37eecf10-a735-4aa8-8de6-aec4ddb529e3",
@@ -293,7 +329,8 @@
     "isVeg": true,
     "name": "Chilly Baby Corn",
     "price": 55,
-    "order": 37
+    "order": 37,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/baby_corn_manchurian.png?alt=media&token=7f36c76f-0715-4381-a774-ed6bac6dc2cb",
@@ -301,7 +338,8 @@
     "isVeg": true,
     "name": "Baby Corn Manchurian",
     "price": 55,
-    "order": 38
+    "order": 38,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_babycorn_chilly.png?alt=media&token=6fc1ad9b-40ed-43bf-9d8d-84c8fb235796",
@@ -309,7 +347,8 @@
     "isVeg": true,
     "name": "Paneer Baby Corn Chilly",
     "price": 60,
-    "order": 39
+    "order": 39,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_babycorn_manchurian.png?alt=media&token=31edca37-249c-4b9b-b04e-3d5b40719c28",
@@ -317,7 +356,8 @@
     "isVeg": true,
     "name": "Paneer Baby Corn Manchurian",
     "price": 60,
-    "order": 40
+    "order": 40,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_mushroom_chilly.png?alt=media&token=052419d0-fcac-4419-b11c-8e5b54f6370b",
@@ -325,7 +365,8 @@
     "isVeg": true,
     "name": "Paneer Mushroom Chilly",
     "price": 60,
-    "order": 41
+    "order": 41,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_mushroom_manchurian.png?alt=media&token=e502d166-09e2-4a17-afbf-c28d60c3ee26",
@@ -333,7 +374,8 @@
     "isVeg": true,
     "name": "Paneer Mushroom Manchurian",
     "price": 60,
-    "order": 42
+    "order": 42,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_scz_fried_rice.png?alt=media&token=dbe2397f-3cba-4887-81c9-ab51ccc24354",
@@ -341,7 +383,8 @@
     "isVeg": true,
     "name": "Veg Schezwan Fried Rice",
     "price": 50,
-    "order": 43
+    "order": 43,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_fried_rice.png?alt=media&token=8cb5af39-6b8c-4359-ba86-5ca1cc57ad2b",
@@ -349,7 +392,8 @@
     "isVeg": true,
     "name": "Veg Fried Rice",
     "price": 45,
-    "order": 44
+    "order": 44,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/egg_fried_rice.png?alt=media&token=9855bdcb-6eb0-42b9-955d-f89599613acd",
@@ -357,7 +401,8 @@
     "isVeg": false,
     "name": "Egg Fried Rice",
     "price": 50,
-    "order": 45
+    "order": 45,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/egg_scz_fried_rice.png?alt=media&token=78819691-a42d-48ee-8565-a8ad5b298f09",
@@ -365,7 +410,8 @@
     "isVeg": false,
     "name": "Egg Schezwan Fried Rice",
     "price": 60,
-    "order": 46
+    "order": 46,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_fried_rice.png?alt=media&token=4f777242-9f54-42c7-8b60-65f9e842b77e",
@@ -373,7 +419,8 @@
     "isVeg": false,
     "name": "Chicken Fried Rice",
     "price": 65,
-    "order": 47
+    "order": 47,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_scz_fried_rice.png?alt=media&token=f54eca5f-64cb-4b77-90ab-bb18fe81296f",
@@ -381,7 +428,8 @@
     "isVeg": false,
     "name": "Chicken Schezwan Fried Rice",
     "price": 45,
-    "order": 48
+    "order": 48,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_curry_w_paratha.png?alt=media&token=6d680f21-eff4-4364-9258-7f716985a566",
@@ -389,7 +437,8 @@
     "isVeg": true,
     "name": "Paneer Curry with Paratha",
     "price": 50,
-    "order": 49
+    "order": 49,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/egg_curry_w_paratha.png?alt=media&token=1c4446eb-a84b-4321-b913-62beb804ae58",
@@ -397,7 +446,8 @@
     "isVeg": false,
     "name": "Egg Curry with Paratha",
     "price": 40,
-    "order": 50
+    "order": 50,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_curry_w_curry.png?alt=media&token=7345797e-66db-4861-88a5-9fc23ff5989d",
@@ -405,7 +455,8 @@
     "isVeg": false,
     "name": "Chicken Curry with Paratha",
     "price": 75,
-    "order": 51
+    "order": 51,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_momos.png?alt=media&token=c41fdc4a-7722-4ce9-91fc-d83cd9b2ebd3",
@@ -413,7 +464,8 @@
     "isVeg": true,
     "name": "Veg Momo",
     "price": 25,
-    "order": 52
+    "order": 52,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_momos.png?alt=media&token=dfc98b63-0511-4f46-b52c-517f13f681c0",
@@ -421,7 +473,8 @@
     "isVeg": false,
     "name": "Chicken Momo",
     "price": 35,
-    "order": 53
+    "order": 53,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/paneer_momos.png?alt=media&token=95c43f1e-2f80-46d2-b381-2ac73ff454e8",
@@ -429,7 +482,8 @@
     "isVeg": true,
     "name": "Paneer Momo",
     "price": 30,
-    "order": 54
+    "order": 54,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/veg_kathi_roll.png?alt=media&token=9c01d347-b88a-4aba-af7b-8dd758e5d585",
@@ -437,7 +491,8 @@
     "isVeg": true,
     "name": "Veg Kathi Roll",
     "price": 50,
-    "order": 55
+    "order": 55,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/egg_kathi_roll.png?alt=media&token=1c23b6f1-f2d0-4991-8526-a1b5a5f9244a",
@@ -445,7 +500,8 @@
     "isVeg": false,
     "name": "Egg Kathi Roll",
     "price": 60,
-    "order": 56
+    "order": 56,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chicken_kathi_roll.png?alt=media&token=e5b6f959-d6b8-4d44-a18d-d1457d90521f",
@@ -453,7 +509,8 @@
     "isVeg": false,
     "name": "Chicken Kathi Roll",
     "price": 70,
-    "order": 57
+    "order": 57,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/fresh_juice.png?alt=media&token=2c2498af-9e49-4ed4-8cd2-f540da031553",
@@ -461,7 +518,8 @@
     "isVeg": true,
     "name": "Fresh Juice",
     "price": 35,
-    "order": 58
+    "order": 58,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/sweetlime_juice.png?alt=media&token=d44d5b5c-3a4a-426e-88c7-05334a7e4d66",
@@ -469,7 +527,8 @@
     "isVeg": true,
     "name": "Sweet Lime Juice",
     "price": 30,
-    "order": 59
+    "order": 59,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/watermelon_juice.png?alt=media&token=f632e2d0-2383-4a3b-8297-0e5c8a036ba1",
@@ -477,7 +536,8 @@
     "isVeg": true,
     "name": "Watermelon Juice",
     "price": 30,
-    "order": 60
+    "order": 60,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/pineapple_juice.png?alt=media&token=90a42492-6ee8-432e-8c55-c0de07584c80",
@@ -485,7 +545,8 @@
     "isVeg": true,
     "name": "Pineapple Juice",
     "price": 15,
-    "order": 61
+    "order": 61,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/lemon_juice.png?alt=media&token=c3e69d76-f41d-49fc-b452-f5f1069f226e",
@@ -493,7 +554,8 @@
     "isVeg": true,
     "name": "Lemon Juice",
     "price": 20,
-    "order": 62
+    "order": 62,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/tea.png?alt=media&token=347ac1f4-ea50-4e8a-8884-f27111b10e47",
@@ -501,7 +563,8 @@
     "isVeg": true,
     "name": "Tea",
     "price": 10,
-    "order": 63
+    "order": 63,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/coffee.png?alt=media&token=d78130f5-8c7b-4c84-82b4-ab2933dc9c29",
@@ -509,7 +572,8 @@
     "isVeg": true,
     "name": "Coffee",
     "price": 10,
-    "order": 64
+    "order": 64,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/lemon_tea.png?alt=media&token=ed0c871a-0369-49ed-9d9f-ddc9cca58d2b",
@@ -517,7 +581,8 @@
     "isVeg": true,
     "name": "Lemon Tea",
     "price": 10,
-    "order": 65
+    "order": 65,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/masala_tea.png?alt=media&token=fec235f7-9d07-465e-91d0-753f8491bf7f",
@@ -525,7 +590,8 @@
     "isVeg": true,
     "name": "Masala Tea",
     "price": 10,
-    "order": 66
+    "order": 66,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/sweet_lassi.png?alt=media&token=3597ed63-40bc-4491-a5d6-1ada01595a87",
@@ -533,7 +599,8 @@
     "isVeg": true,
     "name": "Sweet Lassi",
     "price": 40,
-    "order": 67
+    "order": 67,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/sweet_lassi.png?alt=media&token=3597ed63-40bc-4491-a5d6-1ada01595a87",
@@ -541,7 +608,8 @@
     "isVeg": true,
     "name": "Salt Lassi",
     "price": 40,
-    "order": 68
+    "order": 68,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/mango_lassi.png?alt=media&token=28babefd-c009-47fb-a602-3e6d39d15be9",
@@ -549,7 +617,8 @@
     "isVeg": true,
     "name": "Mango Lassi",
     "price": 50,
-    "order": 69
+    "order": 69,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/strawberry_lassi.png?alt=media&token=130708b3-3870-46c8-b94e-b12fbf44ef91",
@@ -557,7 +626,8 @@
     "isVeg": true,
     "name": "Strawberry Lassi",
     "price": 50,
-    "order": 70
+    "order": 70,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/blackcurrent_lassi.png?alt=media&token=8da1c022-2aa6-4f23-aa64-8792da75eef3",
@@ -565,7 +635,8 @@
     "isVeg": true,
     "name": "Black Current Lassi",
     "price": 60,
-    "order": 71
+    "order": 71,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/choco_lassi.png?alt=media&token=2fc96037-ac00-4325-add4-a5ce644d4920",
@@ -573,7 +644,8 @@
     "isVeg": true,
     "name": "Chocolate Lassi",
     "price": 60,
-    "order": 72
+    "order": 72,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/ksr_bdm_lassi.png?alt=media&token=a290ae8c-fa1f-4066-94bd-50a79319e2a8",
@@ -581,7 +653,8 @@
     "isVeg": true,
     "name": "Kesar Badam Lassi",
     "price": 60,
-    "order": 73
+    "order": 73,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/rose_lassi.png?alt=media&token=b4012b5a-3631-408f-907c-b3fd4d0d3f86",
@@ -589,7 +662,8 @@
     "isVeg": true,
     "name": "Rose Lassi",
     "price": 40,
-    "order": 74
+    "order": 74,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/classic_milkshake.png?alt=media&token=9c2ef03e-05ea-41d4-b678-4a2b233be17d",
@@ -597,7 +671,8 @@
     "isVeg": true,
     "name": "Classic Milkshake",
     "price": 50,
-    "order": 75
+    "order": 75,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/vanilla_milkshake.png?alt=media&token=f24d096e-f22d-45aa-9803-1c63b8d2ccd9",
@@ -605,7 +680,8 @@
     "isVeg": true,
     "name": "Vanilla Milkshake",
     "price": 50,
-    "order": 76
+    "order": 76,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/strawberry_milkshake.png?alt=media&token=0b4879a2-d58e-4d07-9e91-3fda3880dc41",
@@ -613,7 +689,8 @@
     "isVeg": true,
     "name": "Strawberry Milkshake",
     "price": 50,
-    "order": 77
+    "order": 77,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/mango_milkshake.png?alt=media&token=2f128c20-598c-4a69-8ddd-3ae3666cf903",
@@ -621,7 +698,8 @@
     "isVeg": true,
     "name": "Mango Milkshake",
     "price": 50,
-    "order": 78
+    "order": 78,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/chocolate_milkshake.png?alt=media&token=c678c195-a206-442b-b8f7-07e3f80b8b8f",
@@ -629,7 +707,8 @@
     "isVeg": true,
     "name": "Chocolate Milkshake",
     "price": 50,
-    "order": 79
+    "order": 79,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/oreo_shake.png?alt=media&token=a3f9efef-9bee-4c3e-a87f-5c85f58cf270",
@@ -637,7 +716,8 @@
     "isVeg": true,
     "name": "Oreo Shake",
     "price": 50,
-    "order": 80
+    "order": 80,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/butterscoth_milkshake.png?alt=media&token=b52b9eb3-ce7b-4ae3-8acc-7d6f94503213",
@@ -645,7 +725,8 @@
     "isVeg": true,
     "name": "Classic Milkshake",
     "price": 50,
-    "order": 81
+    "order": 81,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/ksr_bdm_milkshake.png?alt=media&token=c6d236a3-c6a4-47c7-9e78-1a5c18328508",
@@ -653,7 +734,8 @@
     "isVeg": true,
     "name": "Kesar Badam Milkshake",
     "price": 60,
-    "order": 82
+    "order": 82,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/snickers_milkshake.png?alt=media&token=0a609a76-d586-49bb-aafc-51a01cfbdb41",
@@ -661,7 +743,8 @@
     "isVeg": true,
     "name": "Snickers Milkshake",
     "price": 60,
-    "order": 83
+    "order": 83,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/nutella_milkshake.png?alt=media&token=de47541c-6c31-4fe6-b2ba-17cc0024ce1f",
@@ -669,7 +752,8 @@
     "isVeg": true,
     "name": "Nutella Milkshake",
     "price": 70,
-    "order": 84
+    "order": 84,
+    "quantity": 5
   },
   {
     "image": "https://firebasestorage.googleapis.com/v0/b/cantocrave-9532a.appspot.com/o/kitkat_milkshake.png?alt=media&token=45390c65-fc1b-4e74-bd20-c415febbc126",
@@ -677,6 +761,7 @@
     "isVeg": true,
     "name": "Kitkat Milkshake",
     "price": 60,
-    "order": 85
+    "order": 85,
+    "quantity": 5
   }
 ]

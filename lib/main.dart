@@ -1,5 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/admin/adminPage.dart';
+import 'package:flutter_firebase/admin/editItemPage.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/pages/beverages_page.dart';
 import 'package:flutter_firebase/pages/chinese_page.dart';
@@ -53,8 +55,10 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.chinesePageRoute: (context) => ChinesePage(),
           MyRoutes.beveragesRoute: (context) => BeveragesPage(),
           MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
+          MyRoutes.adminPageRoute: (context) => AdminPage(),
+          MyRoutes.editItemPageRoute: (context) => EditItemPage(),
         },
-        initialRoute: MyRoutes.bottomBar,
+        initialRoute: MyRoutes.editItemPageRoute,
         // home: const WidgetTree(),
       ),
     );

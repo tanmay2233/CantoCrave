@@ -30,35 +30,41 @@ class _BottomBarPage extends State<BottomBarPage> {
 
   @override
   Widget build(BuildContext context) {
+  var size = MediaQuery.of(context).size;
+
     return Scaffold(
-      drawer: Drawer(
-        backgroundColor: MyTheme.canvasDarkColor,
-      ),
       appBar: AppBar(
-        title: Text(_buttonList[_selectedButton]['title']),
+        leading: null,
+        title: Row(
+          children: [
+            Image.asset("images/logo.png", width: size.width*0.1),
+            SizedBox(width: size.width*0.2),
+            Text(_buttonList[_selectedButton]['title'], textAlign: TextAlign.center),
+          ]
+        ),  
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor]),
           ),
-        ),
-      ),
+        ),  
+      ),    
       body: _buttonList[_selectedButton]['page'],
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home,
-                size: MediaQuery.of(context).size.width * 0.07),
-            label: "Home",
+                size: size.width * 0.07),
+            label: "Home"
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_box,
-                size: MediaQuery.of(context).size.width * 0.07),
-            label: "Search",
+                size: size.width * 0.07),
+            label: "Search"
           ),
           BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.shopping_cart,
-                size: MediaQuery.of(context).size.width * 0.07),
+                size: size.width * 0.07),
             label: "Cart",
           )
         ],

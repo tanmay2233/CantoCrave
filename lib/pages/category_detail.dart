@@ -56,6 +56,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                 gradient: LinearGradient(
                     colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor],
                     begin: Alignment.topCenter)),
+
             child: Column(
               children: [
                 SizedBox(height: size.height * 0.03),
@@ -134,7 +135,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                       price: documents[index]['price'].toDouble(), 
                                       image: documents[index]['image'],
                                       isVeg: documents[index]['isVeg'],)
-                                  ),
+                                ),
                               ],
                             )),
                           );

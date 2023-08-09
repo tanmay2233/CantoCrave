@@ -12,4 +12,6 @@ class MyRoutes{
   static String beveragesRoute = "/beveragesPage";
   static String chinesePageRoute = "/chinesePage";
   static String rollsPageRoute = "/rollsPage";
+  static String adminPageRoute = "/adminPage";
+  static String editItemPageRoute = "/editItemPage";
 }

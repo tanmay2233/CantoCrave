@@ -11,6 +11,7 @@ import 'package:flutter_firebase/pages/burgers&sandwiches_page.dart';
 import 'package:flutter_firebase/pages/cart_page.dart';
 import 'package:flutter_firebase/pages/home_page.dart';
 import 'package:flutter_firebase/pages/login_page.dart';
+import 'package:flutter_firebase/pages/myOrders.dart';
 import 'package:flutter_firebase/pages/noodles_page.dart';
 import 'package:flutter_firebase/pages/profile_page.dart';
 import 'package:flutter_firebase/pages/rolls_page.dart';
@@ -57,8 +58,9 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
           MyRoutes.adminPageRoute: (context) => AdminPage(),
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
+          MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
         },
-        initialRoute: MyRoutes.editItemPageRoute,
+        initialRoute: MyRoutes.bottomBar,
         // home: const WidgetTree(),
       ),
     );

@@ -59,10 +59,11 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
 
             child: Column(
               children: [
-                SizedBox(height: size.height * 0.03),
+                SizedBox(height: size.height * 0.0
+                ),
                 StreamBuilder<QuerySnapshot>(
                   stream: FirebaseFirestore.instance.collection('Menu_Items')
-                      .where('categories', isEqualTo: widget.category).snapshots(),
+                    .where('categories', isEqualTo: widget.category).snapshots(),
 
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {

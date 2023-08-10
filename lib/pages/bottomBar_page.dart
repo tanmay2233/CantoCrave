@@ -2,9 +2,13 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/pages/cart_page.dart';
 import 'package:flutter_firebase/pages/home_page.dart';
 import 'package:flutter_firebase/pages/profile_page.dart';
+import 'package:flutter_firebase/routes/routes.dart';
+import 'package:provider/provider.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 import '../Theme/themes.dart';
 
@@ -36,10 +40,33 @@ class _BottomBarPage extends State<BottomBarPage> {
       appBar: AppBar(
         leading: null,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset("images/logo.png", width: size.width*0.1),
-            SizedBox(width: size.width*0.2),
             Text(_buttonList[_selectedButton]['title'], textAlign: TextAlign.center),
+
+            // Cart Icon
+
+            Consumer<CartListProvider>(
+              builder: (context, value, child) => 
+              (value.cartList.length > 0)?
+              Badge(
+                alignment: Alignment.topRight,
+                backgroundColor: MyTheme.cardColor,
+                textColor: MyTheme.canvasDarkColor,
+                label: Text(value.cartList.length.toString()),
+                child: Padding(
+                  padding: EdgeInsets.all(size.width*0.01),
+                  child: InkWell(
+                    onTap: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+                    child: Icon(CupertinoIcons.cart)),
+                )
+                ):
+                InkWell(
+                    onTap: () =>
+                        Navigator.pushNamed(context, MyRoutes.cartRoute),
+                    child: Icon(CupertinoIcons.cart)),
+            )
           ]
         ),  
         flexibleSpace: Container(

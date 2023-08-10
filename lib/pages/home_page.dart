@@ -38,58 +38,59 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor],
-                begin: Alignment.topCenter)),
-        child: SizedBox(
-          height: double.infinity,
-          width: double.infinity,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.33,
-                  child: Swiper(
-                    itemCount: _categoryCardMapList.length,
-                    autoplay: true,
-                    itemBuilder: (context, index) {
-                      return Image.asset(
-                        _categoryCardMapList[index],
-                        fit: BoxFit.fill,
-                      );
-                    },
-                    pagination: SwiperPagination(
-                        alignment: Alignment.bottomCenter,
-                        builder: DotSwiperPaginationBuilder(
-                          activeColor: MyTheme.fontColor,
+    return  Scaffold(
+          
+          body: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor],
+                    begin: Alignment.topCenter)),
+            child: SizedBox(
+              height: double.infinity,
+              width: double.infinity,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.33,
+                      child: Swiper(
+                        itemCount: _categoryCardMapList.length,
+                        autoplay: true,
+                        itemBuilder: (context, index) {
+                          return Image.asset(
+                            _categoryCardMapList[index],
+                            fit: BoxFit.fill,
+                          );
+                        },
+                        pagination: SwiperPagination(
+                            alignment: Alignment.bottomCenter,
+                            builder: DotSwiperPaginationBuilder(
+                              activeColor: MyTheme.fontColor,
+                            )),
+                      ),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+                    Text("Categories",
+                        style: TextStyle(color: MyTheme.fontColor, fontSize: MediaQuery.of(context).size.width*0.085,
+                        fontWeight: FontWeight.bold
                         )),
-                  ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.018),
+                    CategoriesPage(),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                    Text("Top Sellers",
+                        style: TextStyle(color: MyTheme.fontColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.065,
+                            fontWeight: FontWeight.bold)),
+    
+                    SizedBox(height: size.height*0.025),
+    
+                    TopSellers(),
+                    SizedBox(height: size.height*0.04,)
+                  ],
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.07),
-                Text("Categories",
-                    style: TextStyle(color: MyTheme.fontColor, fontSize: MediaQuery.of(context).size.width*0.085,
-                    fontWeight: FontWeight.bold
-                    )),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.018),
-                CategoriesPage(),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-                Text("Top Sellers",
-                    style: TextStyle(color: MyTheme.fontColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.065,
-                        fontWeight: FontWeight.bold)),
-
-                SizedBox(height: size.height*0.025),
-
-                TopSellers(),
-                SizedBox(height: size.height*0.04,)
-              ],
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        );
   }
 }

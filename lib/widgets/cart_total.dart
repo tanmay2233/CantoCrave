@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
+import 'package:flutter_firebase/pages/cart_page.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
@@ -31,7 +32,33 @@ class MyBottomBar extends StatelessWidget {
               width: size.width * 0.5,
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, MyRoutes.cartRoute);
+                    // Define the custom slide transition
+                    var customPageRoute = PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return CartPage(); // Replace with the widget for the second page
+                      },
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        // Use a Tween to control the slide animation
+                        var tween = Tween(begin: Offset(0.0, 1.0), end: Offset.zero);
+
+                        // Use a CurvedAnimation to control the easing curve
+                        var curvedAnimation = CurvedAnimation(
+                          parent: animation,
+                          curve:
+                              Curves.easeInOut, // Choose your preferred curve
+                        );
+
+                        // Apply the slide transition
+                        return SlideTransition(
+                          position: tween.animate(curvedAnimation),
+                          child: child,
+                        );
+                      },
+                      transitionDuration: Duration(seconds: 1),
+                    );
+
+                    Navigator.of(context).push(customPageRoute);
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: MyTheme.fontColor, elevation: 0.0),

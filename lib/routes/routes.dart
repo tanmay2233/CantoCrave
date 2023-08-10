@@ -14,4 +14,6 @@ class MyRoutes{
   static String rollsPageRoute = "/rollsPage";
   static String adminPageRoute = "/adminPage";
   static String editItemPageRoute = "/editItemPage";
+  static String searchPageRoute = "/searchPage";
+  static String myOrdersPageRoute = "/myOrdersPage";
 }

@@ -13,7 +13,14 @@ class MyOrders {
   }
 
   static void addToMyOrders(List<CartModel> orderedItems){
-    print(_MyOrdersList[0].length);
     _MyOrdersList.add(orderedItems);
   } 
+
+  static double getOrderTotal(int index){
+    double total = 0;
+    for(var cost in _MyOrdersList[index]){
+      total += cost.price*cost.quantity;
+    }
+    return total;
+  }
 }

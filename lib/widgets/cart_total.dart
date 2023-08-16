@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/pages/cart_page.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
-import '../routes/routes.dart';
 
 class MyBottomBar extends StatelessWidget {
   const MyBottomBar({super.key});
@@ -19,11 +17,17 @@ class MyBottomBar extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("₹ ${value.getCartTotal()}",
-                style: TextStyle(
-                    color: MyTheme.fontColor,
-                    fontWeight: FontWeight.bold,
-                    fontSize: size.width * 0.0475)),
+            FutureBuilder(
+              future: value.getCartTotal(),
+              builder: (context, snapshot) {
+                final subtotal = snapshot.data ?? 0;
+              return Text("₹ ${subtotal}",
+                  style: TextStyle(
+                      color: MyTheme.fontColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: size.width * 0.0475));
+              },
+            ),
             Container(
               decoration: BoxDecoration(
                   color: MyTheme.fontColor,

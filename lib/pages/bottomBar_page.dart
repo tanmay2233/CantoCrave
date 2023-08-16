@@ -8,7 +8,6 @@ import 'package:flutter_firebase/pages/home_page.dart';
 import 'package:flutter_firebase/pages/profile_page.dart';
 import 'package:flutter_firebase/routes/routes.dart';
 import 'package:provider/provider.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 import '../Theme/themes.dart';
 

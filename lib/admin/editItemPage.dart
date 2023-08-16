@@ -63,7 +63,6 @@ class _EditItemPageState extends State<EditItemPage> {
                         itemCount: documents.length,
                         itemBuilder: (context, index) {
                         String? documentId = snapshot.data?.docs[index].id; 
-                        print(documentId);
                           return Padding(
                             padding: EdgeInsets.all(size.width * 0.018),
                             child: GridTile(

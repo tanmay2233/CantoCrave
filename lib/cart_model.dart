@@ -13,4 +13,14 @@ class CartModel {
     this.image,
     this.isVeg
   );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'price': price,
+      'quantity': quantity,
+      'image': image,
+      'isVeg': isVeg
+    };
+  }
 }

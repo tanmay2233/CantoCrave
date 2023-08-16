@@ -85,60 +85,80 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: EdgeInsets.all(size.width * 0.018),
-                            child: GridTile(
-                                child: Column(
+                            child: Stack(
                               children: [
-                                Stack(
-                                  alignment: Alignment.topRight,
+                                GridTile(
+                                    child: Column(
                                   children: [
-                                    Image(
-                                      image: NetworkImage(documents[index]['image']),
-                                      height: size.height * 0.12,
+                                    Stack(
+                                      alignment: Alignment.topRight,
+                                      children: [
+                                        Image(
+                                          image: NetworkImage(documents[index]['image']),
+                                          height: size.height * 0.12,
+                                        ),
+                                      ],
+                                    ),
+                                    GridTileBar(
+                                        title: Expanded(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Expanded(
+                                                  child: Text(
+                                                documents[index]['name'],
+                                                maxLines: 3,
+                                                style: TextStyle(
+                                                    color: MyTheme.fontColor),
+                                              )),
+                                              Stack(
+                                                alignment: Alignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.crop_square_sharp,
+                                                    color: documents[index]['isVeg']
+                                                        ? Colors.green
+                                                        : const Color.fromARGB(
+                                                            202, 243, 57, 44),
+                                                    size: size.width * 0.06,
+                                                  ),
+                                                  Icon(Icons.circle,
+                                                      color: documents[index]['isVeg']
+                                                          ? Colors.green
+                                                          : const Color.fromARGB(
+                                                              202, 243, 57, 44),
+                                                      size: size.width * 0.024),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        subtitle: DecreaseQtyButton(name: documents[index]['name'], 
+                                          price: documents[index]['price'].toDouble(), 
+                                          image: documents[index]['image'],
+                                          isVeg: documents[index]['isVeg'])
                                     ),
                                   ],
-                                ),
-                                GridTileBar(
-                                    title: Expanded(
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Expanded(
-                                              child: Text(
-                                            documents[index]['name'],
-                                            maxLines: 3,
-                                            style: TextStyle(
-                                                color: MyTheme.fontColor),
-                                          )),
-                                          Stack(
-                                            alignment: Alignment.center,
-                                            children: [
-                                              Icon(
-                                                Icons.crop_square_sharp,
-                                                color: documents[index]['isVeg']
-                                                    ? Colors.green
-                                                    : const Color.fromARGB(
-                                                        202, 243, 57, 44),
-                                                size: size.width * 0.06,
-                                              ),
-                                              Icon(Icons.circle,
-                                                  color: documents[index]['isVeg']
-                                                      ? Colors.green
-                                                      : const Color.fromARGB(
-                                                          202, 243, 57, 44),
-                                                  size: size.width * 0.024),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                    subtitle: DecreaseQtyButton(name: documents[index]['name'], 
-                                      price: documents[index]['price'].toDouble(), 
-                                      image: documents[index]['image'],
-                                      isVeg: documents[index]['isVeg'],)
-                                ),
+                                )),
+                                (documents[index]['quantity'] == 0)?
+                                Container(
+                                  height: double.infinity,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(255, 34, 9, 9).withOpacity(0.5)
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text("Not Available",
+                                      style: TextStyle(color: MyTheme.cardColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: size.width*0.04)),
+                                  ),
+                                ):
+                                Container()
                               ],
-                            )),
+                            ),
                           );
                         },
                       ),

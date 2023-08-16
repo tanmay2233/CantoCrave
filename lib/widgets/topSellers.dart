@@ -88,7 +88,8 @@ class TopSellers extends StatelessWidget {
                       subtitle: DecreaseQtyButton(name: filteredDocs[index]['name'], 
                         price: filteredDocs[index]['price'].toDouble(), 
                         image: filteredDocs[index]['image'],
-                        isVeg: filteredDocs[index]['isVeg'],)
+                        isVeg: filteredDocs[index]['isVeg']
+                        )
                     ),
                 ],
               )),

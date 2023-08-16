@@ -13,6 +13,7 @@ dependencies:
   velocity_x: 4.1.0
   flutter:
     sdk: flutter
+  collection: ^1.15.0 
   provider:
 
 
@@ -28,6 +29,7 @@ dependencies:
   cloud_firestore: ^4.8.4
   firebase_storage: ^11.2.5
   intl: ^0.18.1
+  easy_upi_payment: ^0.1.5
 
 dev_dependencies:
   flutter_test:

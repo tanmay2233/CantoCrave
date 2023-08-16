@@ -26,9 +26,16 @@ class CartCalculations extends StatelessWidget {
                   Text("Subtotal",
                       style: TextStyle(
                           fontSize: size.width * 0.035, color: MyTheme.iconColor)),
-                  Text("₹ ${value.getCartTotal()}",
-                      style: TextStyle(
-                          fontSize: size.width * 0.035, color: MyTheme.fontColor))
+                  FutureBuilder(
+                    future: value.getCartTotal(),
+                    builder: (context, snapshot) {
+
+                    final subtotal = snapshot.data ?? 0;
+                    return Text("₹ ${subtotal}",
+                        style: TextStyle(
+                            fontSize: size.width * 0.035, color: MyTheme.fontColor));
+                    }  
+                  )
                 ],
               ),
               Row(
@@ -54,11 +61,18 @@ class CartCalculations extends StatelessWidget {
                       fontSize: size.width * 0.04,
                       fontWeight: FontWeight.bold,
                       color: Vx.white)),
-                  Text("₹ ${value.getCartTotal()}",
-                    style: TextStyle(
-                      fontSize: size.width * 0.04,
-                      fontWeight: FontWeight.bold,
-                      color: MyTheme.cardColor))
+                  FutureBuilder(
+                    future: value.getCartTotal(),
+                    builder: (context, snapshot) {
+
+                      final total = snapshot.data ?? 0;
+                    return Text("₹ ${total}",
+                      style: TextStyle(
+                        fontSize: size.width * 0.04,
+                        fontWeight: FontWeight.bold,
+                        color: MyTheme.cardColor));
+                    },
+                  )
                 ],
               )
             ],

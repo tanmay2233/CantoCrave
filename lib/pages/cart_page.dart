@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, unrelated_type_equality_checks
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/widgets/cartEmpty.dart';
@@ -28,17 +28,27 @@ class CartPage extends StatelessWidget {
             colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor],
             begin: Alignment.topCenter)),
         
-        child: const CartListTiles()),
+        child:  CartListTiles()),
         
       bottomNavigationBar: Consumer<CartListProvider>(
         builder: (context, value, child) => 
-        (value.getCartTotal() > 0)?
-        BottomAppBar(
-          elevation: 0.0,
-          color: MyTheme.canvasDarkColor,
-          child: CheckoutButton(),
-        ):
-        CartEmpty()
+        FutureBuilder(
+          future: value.getCartTotal(),
+          builder: (context, snapshot) {
+            double total = snapshot.data ?? 0.0;
+            if(total > 0){
+              return BottomAppBar(
+                elevation: 0.0,
+                color: MyTheme.canvasDarkColor,
+                child: CheckoutButton(),
+              );
+            }
+            else{
+              return CartEmpty();
+            }
+          },
+        )
+        // const CartEmpty()
       ),
       
     );

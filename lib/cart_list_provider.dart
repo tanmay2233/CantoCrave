@@ -152,11 +152,15 @@ class CartListProvider extends ChangeNotifier{
   Future<List<Map<String, dynamic>>> getCartItems() async {
     final FirebaseAuth auth = FirebaseAuth.instance;
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    List<Map<String, dynamic>> cartItems = [];
     final user = auth.currentUser;
     if (user != null) {
       final cartRef = firestore.collection('cart').doc(user.uid);
       final cartData = await cartRef.get();
-      final cartItems = List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
+      if(cartData.exists){
+
+      cartItems = List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
+      }
       notifyListeners();
       return cartItems;
     }
@@ -169,18 +173,25 @@ class CartListProvider extends ChangeNotifier{
     final FirebaseAuth auth = FirebaseAuth.instance;
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
     final user = auth.currentUser;
+
     if (user != null) {
       final cartRef = firestore.collection('cart').doc(user.uid);
       final cartData = await cartRef.get();
-      final cartItems =
-          List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
-      for(var item in cartItems){
-        total += (item['price']*item['quantity']).toInt();
+
+      if (cartData.exists) {
+        final cartItems =
+            List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
+
+        for (var item in cartItems) {
+          total += (item['price'] * item['quantity']).toDouble();
+        }
+
+        notifyListeners();
+        return total;
       }
-      notifyListeners();
-      return total;
     }
-    notifyListeners();
+
     return 0;
   }
+
 }

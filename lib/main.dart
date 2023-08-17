@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
         },
-        initialRoute: MyRoutes.bottomBar,
+        initialRoute: MyRoutes.loginRoute,
         // home: const WidgetTree(),
       ),
     );

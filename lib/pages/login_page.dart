@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, sort_child_properties_last, non_constant_identifier_names, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/services/auth_service.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_firebase/auth.dart';
@@ -97,12 +98,21 @@ class _LoginPageState extends State<LoginPage> {
             Color.fromARGB(255, 190, 85, 44)
           ])),
       child: ElevatedButton(
-        onPressed: () async {
-          isLogin ? await sigInWithEmailAndPassword() : await createUserWithEmailAndPassword();
-          if (errorMessage == '') {
-            Navigator.pushNamed(context, MyRoutes.bottomBar);
-          }
-        },
+  onPressed: () async {
+    try {
+      final user = await AuthService().signInWithGoogle();
+
+      if (user != null) {
+        Navigator.pushNamed(context, MyRoutes.bottomBar);
+      } else {
+        print(123);
+      }
+    } catch (e) {
+      print("Error signing in with Google: $e");
+      // Handle error
+    }
+  },
+
         child: Text(isLogin ? 'Login' : 'Register',
             style: TextStyle(
               color: Color.fromARGB(255, 240, 216, 166),

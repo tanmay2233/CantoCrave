@@ -30,6 +30,7 @@ dependencies:
   firebase_storage: ^11.2.5
   intl: ^0.18.1
   easy_upi_payment: ^0.1.5
+  google_sign_in: ^6.1.4
 
 dev_dependencies:
   flutter_test:

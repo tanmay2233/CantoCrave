@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return  Scaffold(
-          
+      
           body: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(

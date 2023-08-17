@@ -48,24 +48,37 @@ class _BottomBarPage extends State<BottomBarPage> {
 
             Consumer<CartListProvider>(
               builder: (context, value, child) => 
-              (value.cartList.length > 0)?
-              Badge(
-                alignment: Alignment.topRight,
-                backgroundColor: MyTheme.cardColor,
-                textColor: MyTheme.canvasDarkColor,
-                label: Text(value.cartList.length.toString()),
-                child: Padding(
-                  padding: EdgeInsets.all(size.width*0.01),
-                  child: InkWell(
-                    onTap: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-                    child: Icon(CupertinoIcons.cart)),
-                )
-                ):
-                InkWell(
+              FutureBuilder(
+                future: value.getCartTotal(),
+                builder: (context, snapshot) {
+                  var qty = snapshot.data ?? 0;
+                if(qty > 0){
+                  return Badge(
+                    alignment: Alignment.topRight,
+                    backgroundColor: MyTheme.cardColor,
+                    textColor: MyTheme.canvasDarkColor,
+                    label: FutureBuilder(
+                      future: value.getCartItems(),
+                      builder: (context, snapshot) {
+                        var arr = snapshot.data ?? [];
+                      return Text(arr.length.toString());
+                      }),
+                    child: Padding(
+                      padding: EdgeInsets.all(size.width*0.01),
+                      child: InkWell(
+                        onTap: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+                        child: Icon(CupertinoIcons.cart)),
+                    )
+                    );
+                }
+                else{
+                  return InkWell(
                     onTap: () =>
                         Navigator.pushNamed(context, MyRoutes.cartRoute),
-                    child: Icon(CupertinoIcons.cart)),
-            )
+                    child: Icon(CupertinoIcons.cart));
+                }
+                },
+              ))
           ]
         ),  
         flexibleSpace: Container(

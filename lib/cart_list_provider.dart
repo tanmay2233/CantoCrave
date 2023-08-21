@@ -13,25 +13,6 @@ class CartListProvider extends ChangeNotifier{
 
   double cartTotal = 0;
 
-  void removeItem(String itemName) {
-    bool itemAlreadyInCart = false;
-
-    for (var item in cartList) {
-      if (item.name == itemName) {
-        item.quantity--;
-
-        if (item.quantity == 0) {
-          cartList.remove(item);
-        }
-
-        cartTotal -= item.price;
-        itemAlreadyInCart = true;
-        break;
-      }
-    }
-    notifyListeners();
-  }
-
   Future<int> getItemQuantity(String itemName) async {
     final cartRef = FirebaseFirestore.instance.collection('cart');
 
@@ -51,6 +32,7 @@ class CartListProvider extends ChangeNotifier{
           return existingCartItem['quantity']; // Return the quantity of the item
         } 
       }
+      notifyListeners();
     }
     notifyListeners();
     return 0; // Return 0 if item not found in the cart
@@ -85,6 +67,7 @@ class CartListProvider extends ChangeNotifier{
       }
 
       await cartRef.set({'items': cartItems}, SetOptions(merge: true));
+      notifyListeners();
     }
 
     notifyListeners();
@@ -143,6 +126,7 @@ class CartListProvider extends ChangeNotifier{
       }
     } 
     else {
+      notifyListeners();
       return false;
     }
     notifyListeners();
@@ -164,7 +148,6 @@ class CartListProvider extends ChangeNotifier{
       notifyListeners();
       return cartItems;
     }
-    notifyListeners();
     return [];
   }
 
@@ -190,7 +173,6 @@ class CartListProvider extends ChangeNotifier{
         return total;
       }
     }
-
     return 0;
   }
 

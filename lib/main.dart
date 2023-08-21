@@ -5,6 +5,7 @@ import 'package:flutter_firebase/admin/editItemPage.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/pages/beverages_page.dart';
 import 'package:flutter_firebase/pages/chinese_page.dart';
+import 'package:flutter_firebase/pages/demo.dart';
 import 'package:flutter_firebase/pages/maggie_omelette_page.dart';
 import 'package:flutter_firebase/pages/bottomBar_page.dart';
 import 'package:flutter_firebase/pages/burgers&sandwiches_page.dart';
@@ -59,6 +60,7 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.adminPageRoute: (context) => AdminPage(),
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
+          MyRoutes.demoPageRoute: (context) => DemoPage(),
         },
         initialRoute: MyRoutes.loginRoute,
         // home: const WidgetTree(),

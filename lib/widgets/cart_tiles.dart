@@ -66,7 +66,6 @@ class CartListTiles extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.all(size.width * 0.02),
                           child: SizedBox(
-                            height: size.height * 0.098,
                             child: Row(
                               mainAxisAlignment:
                                 MainAxisAlignment.spaceAround,
@@ -74,6 +73,7 @@ class CartListTiles extends StatelessWidget {
                                 Image.network(
                                   cartItems[index]['image'],
                                   width: size.width * 0.3,
+                                  height: size.height*0.1,
                                 ),
                                 Column(
                                   mainAxisAlignment:

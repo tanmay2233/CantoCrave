@@ -96,7 +96,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                       children: [
                                         Padding(
                                           padding: EdgeInsets.only(
-                                            left: size.width*0.01, right: size.width * 0.01),
+                                              left: size.width * 0.01,
+                                              right: size.width * 0.01),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
@@ -107,7 +108,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                                 maxLines: 4,
                                                 style: TextStyle(
                                                     color: MyTheme.fontColor,
-                                                    fontSize: size.width*0.032),
+                                                    fontSize:
+                                                        size.width * 0.032),
                                               )),
                                               Stack(
                                                 alignment: Alignment.center,
@@ -122,22 +124,34 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                                     size: size.width * 0.06,
                                                   ),
                                                   Icon(Icons.circle,
-                                                      color: documents[index]['isVeg']
-                                                        ? Colors.green
-                                                        : const Color.fromARGB(
-                                                            202, 243, 57, 44),
+                                                      color: documents[index]
+                                                              ['isVeg']
+                                                          ? Colors.green
+                                                          : const Color
+                                                                  .fromARGB(
+                                                              202, 243, 57, 44),
                                                       size: size.width * 0.024),
                                                 ],
                                               )
                                             ],
                                           ),
                                         ),
-                                        DecreaseQtyButton(
-                                            name: documents[index]['name'],
-                                            price: documents[index]['price']
-                                                .toDouble(),
-                                            image: documents[index]['image'],
-                                            isVeg: documents[index]['isVeg'])
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              '₹ ${documents[index]['price'].toInt()}',
+                                              style: const TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            AddToCartButtonPage(
+                                                name: documents[index]['name'],
+                                                price: documents[index]['price']
+                                                    .toDouble(),
+                                                image: documents[index]['image'],
+                                                isVeg: documents[index]['isVeg']),
+                                          ],
+                                        )
                                       ],
                                     ),
                                   ),

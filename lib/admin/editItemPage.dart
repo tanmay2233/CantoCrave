@@ -124,7 +124,7 @@ class _EditItemPageState extends State<EditItemPage> {
                                                 
                                                 backgroundColor: MyTheme.canvasDarkColor,
                                                 title: Text(
-                                                  "Update Address",
+                                                  "Update Item",
                                                   style: TextStyle(color: MyTheme.fontColor),
                                                 ),
                                                 content: Theme(

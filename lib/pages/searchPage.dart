@@ -5,7 +5,6 @@ import 'package:flutter_firebase/widgets/addToCart.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
-import '../cart_model.dart';
 
 class SearchPage extends StatefulWidget {
 
@@ -18,7 +17,6 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   List<Map<String, dynamic>> allItems = [];
 
-// Fetch all documents from Firebase and store them in the allItems array
   void fetchAllItemsFromFirebase(String query) async {
     final result =
       await FirebaseFirestore.instance.collection('Menu_Items').get();

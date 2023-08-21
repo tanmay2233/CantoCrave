@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/admin/adminPage.dart';
 import 'package:flutter_firebase/admin/editItemPage.dart';
+import 'package:flutter_firebase/admin/adminSearchPage.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:flutter_firebase/pages/beverages_page.dart';
 import 'package:flutter_firebase/pages/chinese_page.dart';
@@ -61,9 +62,9 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
           MyRoutes.demoPageRoute: (context) => DemoPage(),
+          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
         },
-        initialRoute: MyRoutes.loginRoute,
-        // home: const WidgetTree(),
+        initialRoute: MyRoutes.adminPageRoute,
       ),
     );
   }

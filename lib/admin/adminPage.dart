@@ -38,9 +38,11 @@ class AdminPage extends StatelessWidget {
                 onPressed: (){
                   Navigator.pushNamed(context, MyRoutes.editItemPageRoute);
                 }, 
-                child: Text("Edit Item"),
+                child: Text("Edit Item(s)",
+                style: TextStyle(color: MyTheme.canvasDarkColor),),
                 style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder()
+                  shape: StadiumBorder(),
+                  backgroundColor: MyTheme.cardColor
                 )),
             ),
             Container(
@@ -48,9 +50,27 @@ class AdminPage extends StatelessWidget {
               height: size.height * 0.05,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Add New Item"),
-                style: ElevatedButton.styleFrom(shape: StadiumBorder())),
-            )
+                child: Text("Add New Item", 
+                style: TextStyle(color: MyTheme.canvasDarkColor),
+                ),
+                style: ElevatedButton.styleFrom(shape: StadiumBorder()
+                ,
+                  backgroundColor: MyTheme.cardColor
+                ))
+            ),
+            Container(
+              width: size.width * 0.5,
+              height: size.height * 0.05,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.adminSearchPageRoute);
+                },
+                child: Text("Search an Item", 
+                style: TextStyle(color: MyTheme.canvasDarkColor),
+                ),
+                style: ElevatedButton.styleFrom(shape: StadiumBorder()
+                ,backgroundColor: MyTheme.cardColor
+                )))
           ],
         )),
       ),

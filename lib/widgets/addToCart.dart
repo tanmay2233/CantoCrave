@@ -57,18 +57,18 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                         },
                       ),
                       IconButton(
-                          onPressed: () async =>
-                              await value.decreaseQuantity(widget.name),
-                          icon: IconButton(
-                              onPressed: () async => await value.addToCart(
-                                  CartModel(
-                                      widget.name,
-                                      widget.price.toDouble(),
-                                      1,
-                                      widget.image,
-                                      widget.isVeg)),
-                              icon: Icon(Icons.add_circle_outline_sharp,
-                                  color: Colors.white))),
+                        onPressed: () async =>
+                          await value.decreaseQuantity(widget.name),
+                        icon: IconButton(
+                          onPressed: () async => await value.addToCart(
+                            CartModel(
+                              widget.name,
+                              widget.price.toDouble(),
+                              1,
+                              widget.image,
+                              widget.isVeg)),
+                            icon: Icon(Icons.add_circle_outline_sharp,
+                              color: Colors.white))),
                     ]);
                   } else {
                     return ElevatedButton(

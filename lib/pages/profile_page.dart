@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, use_build_context_synchronously
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/auth.dart';
 import 'package:flutter_firebase/routes/routes.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../Theme/themes.dart';
 
@@ -23,6 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         body: Container(
           decoration: BoxDecoration(
@@ -46,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             
                             Padding(
                               padding: EdgeInsets.all(MediaQuery.of(context).size.height*0.02),
-                              child: "Hi,  Tanmay !".text.xl4.color(Colors.white).make(),
+                              child: "Hi,  ${user?.displayName} !".text.xl4.color(Colors.white).make(),
                             ),
                         
                             _MyListTile(
@@ -175,7 +177,9 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future<void> signOut() async {
-    await Auth().signOut();
+    FirebaseAuth auth = FirebaseAuth.instance;
+    await auth.signOut();
+    await GoogleSignIn().signOut();
   }
 
     Future<void> LogoutDialog() async {
@@ -194,14 +198,14 @@ class _ProfilePageState extends State<ProfilePage> {
             
             actions:  [
                 TextButton(onPressed: ()async {
-                  signOut();
-                  await Future.delayed(Duration(seconds: 1));
+                  await signOut();
+                  // await Future.delayed(Duration(seconds: 1));
                   Navigator.pop(context);
                   Navigator.pushNamed(context, MyRoutes.loginRoute);
                 },
 
                   child: Text("Yes",
-                  style: TextStyle(color: MyTheme.fontColor),
+                  style: TextStyle(color: MyTheme.fontColor, fontWeight: FontWeight.bold),
                   )),
 
                   SizedBox(width: MediaQuery.of(context).size.width*0.17,),
@@ -212,7 +216,7 @@ class _ProfilePageState extends State<ProfilePage> {
               }
             },
               child: Text("No",
-              style: TextStyle(color: MyTheme.fontColor)
+              style: TextStyle(color: MyTheme.fontColor, fontWeight: FontWeight.bold)
               )),
             ],
           );

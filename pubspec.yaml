@@ -31,6 +31,8 @@ dependencies:
   intl: ^0.18.1
   easy_upi_payment: ^0.1.5
   google_sign_in: ^6.1.4
+  url_launcher: ^6.1.12
+  fancy_shimmer_image: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -50,8 +52,9 @@ flutter:
     - images/food_items/beverages.png
     - images/food_items/chinese.png
     - images/food_items/rolls.png
-    - images/veg.png
-    - images/nonveg.png
+    - images/1.png
+    - images/2.png
+    - images/google_logo.png
 
 flutter_icons:
   image_path: "images/logo.png"

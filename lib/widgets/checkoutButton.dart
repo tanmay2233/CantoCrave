@@ -2,12 +2,46 @@ import 'package:easy_upi_payment/easy_upi_payment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Theme/themes.dart';
 
 class CheckoutButton extends StatelessWidget {
   CheckoutButton({super.key});
 
+  final String beneficiaryName = "Kamlesh Jain";
+  final String upiId = "kamleshjain762011@okicici"; // UPI ID of the beneficiary
+  final String amount = '1.0';
+  final String note = 'NOte';
+  final String senderName = 'tanmayJ';
+
+  String generateUpiUrl(
+      String receiverUpi, String receiverName, String amount, String note) {
+    // Construct the UPI URL
+    final String scheme = 'upi://pay';
+    final Map<String, String> params = {
+      'pa': receiverUpi, // Payee VPA (Virtual Payment Address)
+      'pn': receiverName, // Payee Name
+      'mc': '', // Merchant Code (if applicable)
+      'tid':
+          'txnId12345', // Transaction ID (unique identifier for your transaction)
+      'tn': note, // Transaction Note
+      'am': amount, // Amount
+      'cu': 'INR', // Currency (INR for Indian Rupees)
+      'url': 'your-transaction-url', // Transaction URL (if applicable)
+    };
+
+    // Combine the scheme and parameters
+    String upiUrl = '$scheme?';
+    params.forEach((key, value) {
+      upiUrl += '$key=$value&';
+    });
+
+    return upiUrl;
+  }
+
+
+ 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -16,16 +50,7 @@ class CheckoutButton extends StatelessWidget {
       Padding(
         padding: EdgeInsets.only(left: size.width*0.1, right: size.width*0.1),
         child: InkWell(
-            onTap: () async {
-              final res = await EasyUpiPaymentPlatform.instance.startPayment(
-              EasyUpiPaymentModel(
-                payeeVpa: 'kamleshjain762011@okicici',
-                payeeName: 'TJ',
-                amount: 1.0,
-                description: 'Testing payment',
-              ),
-            );
-            },
+            onTap: () {},
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(

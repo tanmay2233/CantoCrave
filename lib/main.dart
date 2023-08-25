@@ -12,7 +12,6 @@ import 'package:flutter_firebase/pages/bottomBar_page.dart';
 import 'package:flutter_firebase/pages/burgers&sandwiches_page.dart';
 import 'package:flutter_firebase/pages/cart_page.dart';
 import 'package:flutter_firebase/pages/home_page.dart';
-import 'package:flutter_firebase/pages/login_page.dart';
 import 'package:flutter_firebase/pages/myOrders.dart';
 import 'package:flutter_firebase/pages/noodles_page.dart';
 import 'package:flutter_firebase/pages/profile_page.dart';
@@ -21,7 +20,6 @@ import 'package:flutter_firebase/routes/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'widget_tree.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +45,6 @@ class _MyAppState extends State<MyApp> {
         ),
         title: 'Flutter Demo',
         routes: {
-          MyRoutes.loginRoute: (context) => LoginPage(),
           MyRoutes.homeRoute: (context) => HomePage(),
           MyRoutes.cartRoute: (context) => CartPage(),
           MyRoutes.profileRoute: (context) => ProfilePage(),
@@ -62,9 +59,9 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
           MyRoutes.demoPageRoute: (context) => DemoPage(),
-          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
+          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage()
         },
-        initialRoute: MyRoutes.adminPageRoute,
+        initialRoute: MyRoutes.demoPageRoute,
       ),
     );
   }

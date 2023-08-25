@@ -199,9 +199,8 @@ class _ProfilePageState extends State<ProfilePage> {
             actions:  [
                 TextButton(onPressed: ()async {
                   await signOut();
-                  // await Future.delayed(Duration(seconds: 1));
                   Navigator.pop(context);
-                  Navigator.pushNamed(context, MyRoutes.loginRoute);
+                  Navigator.pushNamed(context, MyRoutes.demoPageRoute);
                 },
 
                   child: Text("Yes",

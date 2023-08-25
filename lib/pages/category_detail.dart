@@ -87,6 +87,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                               Column(
                                 children: [
                                   Image(
+                                    
                                     image:
                                         NetworkImage(documents[index]['image']),
                                     height: size.height * 0.114,

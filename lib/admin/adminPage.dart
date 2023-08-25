@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/Theme/themes.dart';
 import 'package:flutter_firebase/routes/routes.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class AdminPage extends StatelessWidget {
   const AdminPage({super.key});
@@ -32,6 +33,19 @@ class AdminPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
+              width: size.width * 0.5,
+              height: size.height * 0.05,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.adminSearchPageRoute);
+                },
+                child: Text("Search an Item", 
+                style: TextStyle(color: MyTheme.canvasDarkColor),
+                ),
+                style: ElevatedButton.styleFrom(shape: StadiumBorder()
+                ,backgroundColor: MyTheme.cardColor
+                ))),
+            Container(
               width: size.width*0.5,
               height: size.height*0.05,
               child: ElevatedButton(
@@ -58,19 +72,20 @@ class AdminPage extends StatelessWidget {
                   backgroundColor: MyTheme.cardColor
                 ))
             ),
-            Container(
-              width: size.width * 0.5,
-              height: size.height * 0.05,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.adminSearchPageRoute);
-                },
-                child: Text("Search an Item", 
-                style: TextStyle(color: MyTheme.canvasDarkColor),
-                ),
-                style: ElevatedButton.styleFrom(shape: StadiumBorder()
-                ,backgroundColor: MyTheme.cardColor
-                )))
+                Container(
+                    width: size.width * 0.5,
+                    height: size.height * 0.05,
+                    child: ElevatedButton(
+                        onPressed: () async {
+                          await GoogleSignIn().signOut();
+                        },
+                        child: Text(
+                          "Logout",
+                          style: TextStyle(color: MyTheme.canvasDarkColor),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            shape: StadiumBorder(),
+                            backgroundColor: MyTheme.fontColor)))
           ],
         )),
       ),

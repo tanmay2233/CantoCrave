@@ -3,10 +3,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/routes/routes.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../Theme/themes.dart';
+import '../routes/routes.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -53,27 +53,18 @@ class _ProfilePageState extends State<ProfilePage> {
                         
                             _MyListTile(
                               context: context,
-                                title: "Address",
+                                title: "Profile",
                                 subtitle: "My Address",
-                                icon: Icons.home,
+                                icon: CupertinoIcons.profile_circled,
                                 onPressed: () async {
                                   await AddressUpdateDialog();
                                 }),
                             
                               _MyListTile(context: context, title: "My Orders", 
-                              icon: Icons.assignment_rounded, onPressed: (){}),
+                              icon: Icons.assignment_rounded, onPressed: (){
+                                Navigator.pushNamed(context, MyRoutes.myOrdersPageRoute);
+                              }),
                             
-                            _MyListTile(
-                                context: context,
-                                title: "Wishlist",
-                                icon: CupertinoIcons.heart_fill,
-                                onPressed: () {}),
-                            
-                            _MyListTile(
-                                context: context,
-                                title: "Viewed",
-                                icon: CupertinoIcons.eye_fill,
-                                onPressed: () {}),
                             
                             _MyListTile(
                                 context: context,

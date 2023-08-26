@@ -2,10 +2,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/widgets/cart_total.dart';
-import 'package:flutter_firebase/widgets/addToCart.dart';
 
 import '../Theme/themes.dart';
+import '../widgets/addToCart.dart';
+import '../widgets/cart_total.dart';
 
 class CategoryDetailPage extends StatefulWidget {
   final String title;
@@ -87,9 +87,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                               Column(
                                 children: [
                                   Image(
-                                    
                                     image:
-                                        NetworkImage(documents[index]['image']),
+                                      NetworkImage(documents[index]['image']),
                                     height: size.height * 0.114,
                                   ),
                                   Expanded(
@@ -106,11 +105,13 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                               Expanded(
                                                   child: Text(
                                                 documents[index]['name'],
-                                                maxLines: 4,
+                                                maxLines: 2,
                                                 style: TextStyle(
                                                     color: MyTheme.fontColor,
                                                     fontSize:
-                                                        size.width * 0.032),
+                                                        size.width * 0.0248,
+                                                    overflow: TextOverflow.ellipsis
+                                                ),
                                               )),
                                               Stack(
                                                 alignment: Alignment.center,

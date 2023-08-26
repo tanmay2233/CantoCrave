@@ -1,16 +1,15 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, non_constant_identifier_names, prefer_final_fields, use_key_in_widget_constructors
 
+import 'package:canto_crave/pages/profile_page.dart';
+import 'package:canto_crave/pages/searchPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
-import 'package:flutter_firebase/pages/cart_page.dart';
-import 'package:flutter_firebase/pages/home_page.dart';
-import 'package:flutter_firebase/pages/profile_page.dart';
-import 'package:flutter_firebase/pages/searchPage.dart';
-import 'package:flutter_firebase/routes/routes.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
+import '../routes/routes.dart';
+import 'home_page.dart';
 
 class BottomBarPage extends StatefulWidget {
   @override

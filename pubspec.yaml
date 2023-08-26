@@ -1,4 +1,4 @@
-name: flutter_firebase
+name: canto_crave
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -40,7 +40,6 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
@@ -53,6 +52,7 @@ flutter:
     - images/food_items/chinese.png
     - images/food_items/rolls.png
     - images/1.png
+    - images/3.png
     - images/2.png
     - images/google_logo.png
 

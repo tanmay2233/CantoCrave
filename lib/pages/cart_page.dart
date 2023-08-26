@@ -1,13 +1,13 @@
 // ignore_for_file: use_key_in_widget_constructors, unrelated_type_equality_checks
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
-import 'package:flutter_firebase/widgets/cartEmpty.dart';
-import 'package:flutter_firebase/widgets/cart_tiles.dart';
-import 'package:flutter_firebase/widgets/checkoutButton.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
+import '../widgets/cartEmpty.dart';
+import '../widgets/cart_tiles.dart';
+import '../widgets/checkoutButton.dart';
 
 class CartPage extends StatelessWidget {
   

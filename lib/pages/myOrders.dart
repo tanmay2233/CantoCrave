@@ -1,14 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../Theme/themes.dart';
-import '../myOrdersModel.dart';
 
-class MyOrdersPage extends StatelessWidget {
-  const MyOrdersPage({super.key});
+class MyOrdersPage extends StatefulWidget {
+  MyOrdersPage({super.key});
+
+  @override
+  State<MyOrdersPage> createState() => _MyOrdersPageState();
+}
+
+class _MyOrdersPageState extends State<MyOrdersPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
+    User? _user = _auth.currentUser;
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -25,95 +36,148 @@ class MyOrdersPage extends StatelessWidget {
       ),
 
       body: Container(
-          height: size.height,
+          width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor],
             ),
           ),
-          child: ListView.builder(
-            itemCount: MyOrders.getMyOrderList().length, // Use the length of the outer list
-            itemBuilder: (context, index1) {
-              final ordersAtIndex1 = MyOrders.getMyOrderList()[index1];
-              return Padding(
-                padding: EdgeInsets.all(size.width*0.06),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: MyTheme.cardColor)),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(size.width * 0.003),
-                        child: Text(
-                          DateFormat.yMd().add_jm().format(DateTime.now()),
-                        style: TextStyle(color: MyTheme.iconColor, 
-                        fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
+          child: StreamBuilder<QuerySnapshot>(
+            stream: _firestore.collection('orders').doc(_user!.uid).collection('orderHistory').snapshots(),
+          builder: (context, snapshot) {
 
-                    ListView.builder(
-                      shrinkWrap : true,
-                      itemCount: ordersAtIndex1.length,
-                      itemBuilder: (context, index) {
-                        final orderItem = ordersAtIndex1[index];
-                        return Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              borderRadius: BorderRadius.circular(size.width*0.05),
-                              gradient: LinearGradient(
-                                colors: [
-                                  MyTheme.canvasDarkColor,
-                                  MyTheme.canvasLightColor
-                                ])),
-                            child: Padding(
-                              padding: EdgeInsets.all(size.width*0.01),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Image.network(orderItem.image,
-                                    width: size.width*0.12,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        orderItem.name,
-                                        style: TextStyle(color: MyTheme.cardColor),
-                                      ),
-                                      Text(
-                                        "${orderItem.quantity.toString()} unit(s)" ,
-                                        style: TextStyle(color: MyTheme.iconColor),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    "₹ ${orderItem.price.toString()}" ,
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ],
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator(color: MyTheme.cardColor);
+            } 
+            else if (snapshot.hasData) {
+              final orderDocs = snapshot.data!.docs;
+
+              if (orderDocs.isEmpty) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text("No orders Placed Till Now !!",
+                    textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: MyTheme.iconColor, fontSize: size.width * 0.065)),
+                    Image.asset("images/logo.png", width: size.width * 0.3)]);
+                        }
+
+              return ListView.builder(
+                itemCount: orderDocs.length,
+                itemBuilder: (context, index1) {
+
+                final orderData =
+                  orderDocs[index1].data() as Map<String, dynamic>;
+                  final orderId = orderDocs[index1].id;
+                  final orderDate = orderData['orderDate'] as Timestamp;
+                  final formattedDate = DateFormat('EEEE d MMM, y')
+                    .format(orderDate.toDate());
+
+                  final items = orderData['items'] as List<dynamic>;
+                  double total = 0;
+
+                  for(var orderedItem in items){
+                    total += orderedItem['quantity']*orderedItem['price'].toDouble().toDouble();
+                  }
+
+                  return Padding(
+                    padding: EdgeInsets.all(size.width*0.06),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(size.width * 0.003),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text(formattedDate,
+                              style: TextStyle(color: Colors.white, 
+                              fontWeight: FontWeight.bold)
                               ),
-                            ),
+                              Text('Order Id: ${orderId}',
+                              style: TextStyle(color: MyTheme.iconColor, 
+                              fontWeight: FontWeight.bold)
+                              ),
+                            ],
                           ),
-                        );
-                      },
+                        ),
+                        
+                            ListView.builder(
+                              shrinkWrap : true,
+                              itemCount: items.length,
+                              itemBuilder: (context, index) {
+
+                                final item = items[index] as Map<String, dynamic>;
+
+                                return Expanded(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(),
+                                      borderRadius: BorderRadius.circular(size.width*0.05),
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          MyTheme.canvasDarkColor, MyTheme.canvasLightColor
+                                        ])),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(size.width*0.01),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Image.network(item['image'],
+                                            width: size.width*0.12,
+                                          ),
+                                          Column(
+                                            children: [
+                                              Text(
+                                                item['name'],
+                                                maxLines: 2,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(color: MyTheme.cardColor),
+                                              ),
+                                              Text(
+                                                "${item['quantity'].toString()} unit(s)" ,
+                                                style: TextStyle(color: MyTheme.iconColor))
+                                            ]
+                                          ),
+                                          Text(
+                                            "₹ ${item['price'].toString()}" ,
+                                            style: TextStyle(color: Colors.white))
+                                        ]
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                            ),
+                        Padding(
+                          padding: EdgeInsets.all(size.width*0.02),
+                          child: Align(
+                            alignment: Alignment.bottomRight,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text("Order Toatl:  ",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold)),
+                                Text("₹ ${total.toString()}", 
+                                  style: TextStyle(color: MyTheme.fontColor,
+                                    fontWeight: FontWeight.bold
+                                  )),
+                              ],
+                            )),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.all(size.width*0.02),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text("₹ ${MyOrders.getOrderTotal(index1)}", 
-                          style: TextStyle(color: MyTheme.fontColor,
-                            fontWeight: FontWeight.bold
-                          ))),
-                    )
-                  ],
-                ),
+                  );
+                },
               );
-            },
-          ),
+            }
+            else {
+              return Container();
+            }
+        }),
         )
 
     );

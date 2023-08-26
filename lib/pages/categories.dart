@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/routes/routes.dart';
 
 import '../Theme/themes.dart';
+import '../routes/routes.dart';
 
 class CategoriesPage extends StatelessWidget {
 

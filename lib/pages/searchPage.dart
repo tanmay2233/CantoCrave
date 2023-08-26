@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
-import 'package:flutter_firebase/widgets/addToCart.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
+import '../widgets/addToCart.dart';
 
 class SearchPage extends StatefulWidget {
 

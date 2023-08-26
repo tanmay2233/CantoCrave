@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_model.dart';
-import 'package:flutter_firebase/widgets/cartCalculations.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../Theme/themes.dart';
 import '../cart_list_provider.dart';
+import '../cart_model.dart';
+import 'cartCalculations.dart';
 
 class CartListTiles extends StatelessWidget {
   CartListTiles({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
 
 class CartCalculations extends StatelessWidget {
   const CartCalculations({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/Theme/themes.dart';
-import 'package:flutter_firebase/routes/routes.dart';
 
+import '../Theme/themes.dart';
+import '../routes/routes.dart';
 import '../services/auth_service.dart';
 
 class DemoPage extends StatefulWidget {
@@ -50,7 +50,7 @@ class _DemoPageState extends State<DemoPage> {
               }
               else if(index == 1){
                 _upperText = "Collect Your Food From Canteen";
-                _lowerText = "Let's Signin Now..";
+                _lowerText = "Let's SignIn Now..";
               }
               return (index < 2) ? Column(
                 children: [
@@ -59,7 +59,7 @@ class _DemoPageState extends State<DemoPage> {
                     _upperText,
                     style: TextStyle(
                       color: MyTheme.cardColor, fontSize: size.width * 0.06),
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.center
                   ),
                   Image.asset("images/${index + 1}.png"),
                   SizedBox(height: size.height * 0.03),
@@ -68,7 +68,7 @@ class _DemoPageState extends State<DemoPage> {
                     child: Text(
                       _lowerText,
                       style: TextStyle(
-                          color: Colors.white, fontSize: size.width * 0.04),
+                        color: Colors.white, fontSize: size.width * 0.04),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -84,8 +84,11 @@ class _DemoPageState extends State<DemoPage> {
               )
               :
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
+                  Image.asset('images/logo.png',
+                    height: size.height*0.25,),
+                  SizedBox(
                     
                     width: size.width*0.55,
                     child: ElevatedButton(onPressed: () async {
@@ -127,7 +130,7 @@ class _DemoPageState extends State<DemoPage> {
                           color: MyTheme.canvasDarkColor),),
                       ],
                     )),
-                  )
+                  ),
                 ],
               );
             },

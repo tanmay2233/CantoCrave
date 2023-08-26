@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sort_child_properties_last
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
-import 'package:flutter_firebase/cart_model.dart';
 import 'package:provider/provider.dart';
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
+import '../cart_model.dart';
 
 class AddToCartButtonPage extends StatefulWidget {
   final String name, image;

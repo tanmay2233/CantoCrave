@@ -1,29 +1,14 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_final_fields, unused_element
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/pages/categories.dart';
-import 'package:flutter_firebase/widgets/topSellers.dart';
 import '../Theme/themes.dart';
 import 'package:card_swiper/card_swiper.dart';
 
-import '../auth.dart';
+import '../widgets/topSellers.dart';
+import 'categories.dart';
+
 
 class HomePage extends StatefulWidget {
-  final User? user = Auth().currentUser;
-
-  Future<void> signOut() async {
-    await Auth().signOut();
-  }
-
-  Widget _userUid() {
-    return Text(user?.email ?? 'User Email');
-  }
-
-  Widget _signOutButton() {
-    return ElevatedButton(onPressed: signOut, child: Text("Sign Out"));
-  }
-
   @override
   State<HomePage> createState() => _HomePageState();
 }

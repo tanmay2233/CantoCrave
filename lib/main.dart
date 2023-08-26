@@ -1,25 +1,27 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+import 'package:canto_crave/pages/beverages_page.dart';
+import 'package:canto_crave/pages/bottomBar_page.dart';
+import 'package:canto_crave/pages/burgers&sandwiches_page.dart';
+import 'package:canto_crave/pages/cart_page.dart';
+import 'package:canto_crave/pages/chinese_page.dart';
+import 'package:canto_crave/pages/demo.dart';
+import 'package:canto_crave/pages/home_page.dart';
+import 'package:canto_crave/pages/maggie_omelette_page.dart';
+import 'package:canto_crave/pages/myOrders.dart';
+import 'package:canto_crave/pages/noodles_page.dart';
+import 'package:canto_crave/pages/profile_page.dart';
+import 'package:canto_crave/pages/rolls_page.dart';
+import 'package:canto_crave/routes/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/admin/adminPage.dart';
-import 'package:flutter_firebase/admin/editItemPage.dart';
-import 'package:flutter_firebase/admin/adminSearchPage.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
-import 'package:flutter_firebase/pages/beverages_page.dart';
-import 'package:flutter_firebase/pages/chinese_page.dart';
-import 'package:flutter_firebase/pages/demo.dart';
-import 'package:flutter_firebase/pages/maggie_omelette_page.dart';
-import 'package:flutter_firebase/pages/bottomBar_page.dart';
-import 'package:flutter_firebase/pages/burgers&sandwiches_page.dart';
-import 'package:flutter_firebase/pages/cart_page.dart';
-import 'package:flutter_firebase/pages/home_page.dart';
-import 'package:flutter_firebase/pages/myOrders.dart';
-import 'package:flutter_firebase/pages/noodles_page.dart';
-import 'package:flutter_firebase/pages/profile_page.dart';
-import 'package:flutter_firebase/pages/rolls_page.dart';
-import 'package:flutter_firebase/routes/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+
+import 'admin/adminPage.dart';
+import 'admin/adminSearchPage.dart';
+import 'admin/editItemPage.dart';
+import 'cart_list_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +36,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
+    
+    final user = FirebaseAuth.instance.currentUser;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CartListProvider())
@@ -41,7 +45,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: GoogleFonts.cormorantInfant().fontFamily,
+          fontFamily: GoogleFonts.elMessiri().fontFamily,
         ),
         title: 'Flutter Demo',
         routes: {
@@ -61,7 +65,7 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.demoPageRoute: (context) => DemoPage(),
           MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage()
         },
-        initialRoute: MyRoutes.demoPageRoute,
+        initialRoute: (user == null)? MyRoutes.demoPageRoute : MyRoutes.bottomBar,
       ),
     );
   }

@@ -1,10 +1,10 @@
 import 'package:easy_upi_payment/easy_upi_payment.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
 
 class CheckoutButton extends StatelessWidget {
   CheckoutButton({super.key});
@@ -50,7 +50,10 @@ class CheckoutButton extends StatelessWidget {
       Padding(
         padding: EdgeInsets.only(left: size.width*0.1, right: size.width*0.1),
         child: InkWell(
-            onTap: () {},
+            onTap: () async {
+
+              await value.uploadCartItems();
+            },
             child: Container(
               alignment: Alignment.center,
               decoration: BoxDecoration(

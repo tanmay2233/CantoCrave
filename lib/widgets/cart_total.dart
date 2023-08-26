@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/cart_list_provider.dart';
-import 'package:flutter_firebase/pages/cart_page.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
+import '../cart_list_provider.dart';
+import '../pages/cart_page.dart';
 
 class MyBottomBar extends StatelessWidget {
   const MyBottomBar({super.key});

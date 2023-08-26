@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/pages/category_detail.dart';
+
+import 'category_detail.dart';
 
 class RollsCurriesPage extends StatefulWidget {
   const RollsCurriesPage({super.key});

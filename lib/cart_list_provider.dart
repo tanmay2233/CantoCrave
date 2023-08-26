@@ -176,4 +176,34 @@ class CartListProvider extends ChangeNotifier{
     return 0;
   }
 
+
+
+  Future<void> uploadCartItems() async {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final user = auth.currentUser;
+
+  if (user != null) {
+    final cartRef = firestore.collection('cart').doc(user.uid);
+    final cartData = await cartRef.get();
+
+    final userDocRef = firestore.collection('orders').doc(user.uid);
+    final orderHistoryCollectionRef = userDocRef.collection('orderHistory');
+
+    // Generate a random 6-digit order ID
+    final orderId =
+      (100000 + DateTime.now().millisecondsSinceEpoch % 900000).toString();
+
+    // Create a new order document with order date
+    final orderDocRef = orderHistoryCollectionRef.doc(orderId);
+    await orderDocRef.set({
+      'orderDate': FieldValue.serverTimestamp(),
+      'items': cartData.exists ? (cartData.data()!['items'] as List<dynamic>) : [],
+
+    });
+
+    await cartRef.delete();
+  }
+}
+
 }

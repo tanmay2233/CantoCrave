@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase/Theme/themes.dart';
-import 'package:flutter_firebase/routes/routes.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../Theme/themes.dart';
+import '../routes/routes.dart';
 
 class AdminPage extends StatelessWidget {
   const AdminPage({super.key});

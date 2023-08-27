@@ -75,11 +75,12 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                   return Expanded(
                     child: GridView.builder(
                       gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2
                       ),
                       itemCount: documents.length,
                       itemBuilder: (context, index) {
+                        int availableQty = documents[index]['quantity'];
                         return Padding(
                           padding: EdgeInsets.all(size.width * 0.018),
                           child: Stack(
@@ -151,7 +152,9 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                                 price: documents[index]['price']
                                                     .toDouble(),
                                                 image: documents[index]['image'],
-                                                isVeg: documents[index]['isVeg']),
+                                                isVeg: documents[index]['isVeg'],
+                                                availableQty: availableQty
+                                                ),
                                           ],
                                         )
                                       ],

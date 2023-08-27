@@ -1,10 +1,9 @@
-class MyRoutes{
-
-  static String loginRoute = "/login"; 
+class MyRoutes {
+  static String loginRoute = "/login";
   static String homeRoute = "/home";
   static String profileRoute = "/profile";
   static String cartRoute = "/cart";
-  static String bottomBar = "/bottomBar";  
+  static String bottomBar = "/bottomBar";
   static String loadPageRoute = "/loadPage";
   static String burgerSandwichRoute = "/burgerSandwichPage";
   static String noodlesRoute = "/noodlesPage";
@@ -16,7 +15,7 @@ class MyRoutes{
   static String editItemPageRoute = "/editItemPage";
   static String searchPageRoute = "/searchPage";
   static String myOrdersPageRoute = "/myOrdersPage";
-  static String demoPageRoute = "/demo";
+  static String welcomePageRoute = "/welcomePage";
   static String adminSearchPageRoute = "/adminSearchPage";
   static String welcomePage2Route = "/welcomePage2";
   static String paymentPageRoute = "/paymentPage";

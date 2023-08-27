@@ -14,9 +14,7 @@ import 'package:canto_crave/pages/noodles_page.dart';
 import 'package:canto_crave/pages/profile_page.dart';
 import 'package:canto_crave/pages/rolls_page.dart';
 import 'package:canto_crave/routes/routes.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'admin/adminPage.dart';
@@ -30,46 +28,56 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
+
 class MyApp extends StatefulWidget {
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+
+  static String _initialRoute = '';
+
+  static String getRoute(){
+    return _initialRoute;
+  }
+
   Widget build(BuildContext context) {
-    
-    final user = FirebaseAuth.instance.currentUser;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CartListProvider())
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: GoogleFonts.elMessiri().fontFamily,
-        ),
-        title: 'Flutter Demo',
-        routes: {
-          MyRoutes.homeRoute: (context) => HomePage(),
-          MyRoutes.cartRoute: (context) => CartPage(),
-          MyRoutes.profileRoute: (context) => ProfilePage(),
-          MyRoutes.bottomBar: (context) => BottomBarPage(),
-          MyRoutes.burgerSandwichRoute: (context) => BurgerSandwichPage(),
-          MyRoutes.noodlesRoute: (context) => NoodlesPage(),
-          MyRoutes.maggieOmeletteRoute: (context) => MaggieOmelettePage(),
-          MyRoutes.chinesePageRoute: (context) => ChinesePage(),
-          MyRoutes.beveragesRoute: (context) => BeveragesPage(),
-          MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
-          MyRoutes.adminPageRoute: (context) => AdminPage(),
-          MyRoutes.editItemPageRoute: (context) => EditItemPage(),
-          MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
-          MyRoutes.demoPageRoute: (context) => DemoPage(),
-          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
-          MyRoutes.paymentPageRoute: (context) => PaymentPage(),
-          MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
-        },
-        // initialRoute: (user == null)? MyRoutes.demoPageRoute : MyRoutes.bottomBar,
-        initialRoute: MyRoutes.adminPageRoute,
+      child: Consumer<CartListProvider>(
+        builder: (context, value, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: 'elMessiri',
+          ),
+          title: 'Flutter Demo',
+          routes: {
+            MyRoutes.homeRoute: (context) => HomePage(),
+            MyRoutes.cartRoute: (context) => CartPage(),
+            MyRoutes.profileRoute: (context) => ProfilePage(),
+            MyRoutes.bottomBar: (context) => BottomBarPage(),
+            MyRoutes.burgerSandwichRoute: (context) => BurgerSandwichPage(),
+            MyRoutes.noodlesRoute: (context) => NoodlesPage(),
+            MyRoutes.maggieOmeletteRoute: (context) => MaggieOmelettePage(),
+            MyRoutes.chinesePageRoute: (context) => ChinesePage(),
+            MyRoutes.beveragesRoute: (context) => BeveragesPage(),
+            MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
+            MyRoutes.adminPageRoute: (context) => AdminPage(),
+            MyRoutes.editItemPageRoute: (context) => EditItemPage(),
+            MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
+            MyRoutes.welcomePageRoute: (context) => DemoPage(),
+            MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
+            MyRoutes.paymentPageRoute: (context) => PaymentPage(),
+            MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
+          },
+          initialRoute: value.getInitialRoute()
+        );
+        } 
       ),
     );
   }

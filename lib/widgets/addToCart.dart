@@ -10,12 +10,14 @@ class AddToCartButtonPage extends StatefulWidget {
   final String name, image;
   double price;
   bool isVeg;
+  int availableQty;
 
   AddToCartButtonPage(
       {required this.name,
       required this.price,
       required this.image,
-      required this.isVeg});
+      required this.isVeg,
+      required this.availableQty});
 
   @override
   State<AddToCartButtonPage> createState() => _AddToCartButtonPageState();
@@ -44,7 +46,7 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                           icon: Icon(Icons.remove_circle_outline_sharp,
                               color: Colors.white)),
                       FutureBuilder(
-                        future: value.getItemQuantity(widget.name),
+                        future: value.getItemQuantityFromCart(widget.name),
                         builder: (context, snapshot) {
                           final quantity = snapshot.data ?? 0;
 
@@ -57,18 +59,32 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                         },
                       ),
                       IconButton(
-                        onPressed: () async =>
-                          await value.decreaseQuantity(widget.name),
-                        icon: IconButton(
-                          onPressed: () async => await value.addToCart(
-                            CartModel(
-                              widget.name,
-                              widget.price.toDouble(),
-                              1,
-                              widget.image,
-                              widget.isVeg)),
-                            icon: Icon(Icons.add_circle_outline_sharp,
-                              color: Colors.white))),
+                          onPressed: () async =>
+                              await value.decreaseQuantity(widget.name),
+                          icon: IconButton(
+                              onPressed: () async {
+                                if (widget.availableQty >
+                                    await value
+                                        .getItemQuantityFromCart(widget.name)) {
+                                  await value.addToCart(CartModel(
+                                      widget.name,
+                                      widget.price.toDouble(),
+                                      1,
+                                      widget.image,
+                                      widget.isVeg));
+                                } else {
+                                  var snackBar = SnackBar(
+                                      content: Text(
+                                          'No More ${widget.name} Available'),
+                                      duration: Duration(seconds: 2),
+                                      action: SnackBarAction(
+                                          label: '', onPressed: () {}));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                              },
+                              icon: Icon(Icons.add_circle_outline_sharp,
+                                  color: Colors.white))),
                     ]);
                   } else {
                     return ElevatedButton(

@@ -74,6 +74,7 @@ class _SearchPageState extends State<SearchPage> {
               ListView.builder(
                 itemCount: allItems.length,
                 itemBuilder: (context, index) {
+                  int availableQty = allItems[index]['quantity'];
                   return Card(
                         elevation: 4,
                         shape: RoundedRectangleBorder(
@@ -158,7 +159,8 @@ class _SearchPageState extends State<SearchPage> {
                                   AddToCartButtonPage(name: allItems[index]['name'], 
                                     price: allItems[index]['price'].toDouble(), 
                                     image: allItems[index]['image'], 
-                                    isVeg: allItems[index]['isVeg'])
+                                    isVeg: allItems[index]['isVeg'],
+                                    availableQty: availableQty)
                                 ])),
                           ),
                         ),

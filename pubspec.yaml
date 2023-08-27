@@ -29,10 +29,8 @@ dependencies:
   cloud_firestore: ^4.8.4
   firebase_storage: ^11.2.5
   intl: ^0.18.1
-  easy_upi_payment: ^0.1.5
   google_sign_in: ^6.1.4
-  url_launcher: ^6.1.12
-  fancy_shimmer_image: ^2.0.3
+  upi_payment_qrcode_generator: ^1.4.0
 
 dev_dependencies:
   flutter_test:

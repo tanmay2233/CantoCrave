@@ -106,10 +106,9 @@ class _DemoPageState extends State<DemoPage> {
                         Navigator.pop(context); // Close the progress indicator dialog
                         if (user != null) {
                           Navigator.pushNamed(context, MyRoutes.bottomBar);
-                        } else {
-                          print(123);
-                        }
-                      } catch (e) {
+                        } 
+                      } 
+                      catch (e) {
                       }
                     },
                     

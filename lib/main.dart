@@ -1,10 +1,12 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+import 'package:canto_crave/admin/adminOrdersPage.dart';
 import 'package:canto_crave/pages/beverages_page.dart';
 import 'package:canto_crave/pages/bottomBar_page.dart';
 import 'package:canto_crave/pages/burgers&sandwiches_page.dart';
 import 'package:canto_crave/pages/cart_page.dart';
 import 'package:canto_crave/pages/chinese_page.dart';
-import 'package:canto_crave/pages/demo.dart';
+import 'package:canto_crave/pages/paymentPage.dart';
+import 'package:canto_crave/pages/welcomePage.dart';
 import 'package:canto_crave/pages/home_page.dart';
 import 'package:canto_crave/pages/maggie_omelette_page.dart';
 import 'package:canto_crave/pages/myOrders.dart';
@@ -17,7 +19,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-
 import 'admin/adminPage.dart';
 import 'admin/adminSearchPage.dart';
 import 'admin/editItemPage.dart';
@@ -63,9 +64,12 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
           MyRoutes.demoPageRoute: (context) => DemoPage(),
-          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage()
+          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
+          MyRoutes.paymentPageRoute: (context) => PaymentPage(),
+          MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
         },
-        initialRoute: (user == null)? MyRoutes.demoPageRoute : MyRoutes.bottomBar,
+        // initialRoute: (user == null)? MyRoutes.demoPageRoute : MyRoutes.bottomBar,
+        initialRoute: MyRoutes.adminPageRoute,
       ),
     );
   }

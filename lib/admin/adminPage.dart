@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -6,6 +7,12 @@ import '../routes/routes.dart';
 
 class AdminPage extends StatelessWidget {
   const AdminPage({super.key});
+
+  Future<void> signOut() async {
+    FirebaseAuth auth = FirebaseAuth.instance;
+    await auth.signOut();
+    await GoogleSignIn().signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +45,21 @@ class AdminPage extends StatelessWidget {
               height: size.height * 0.05,
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.pushNamed(
+                    context, MyRoutes.adminOrdersPageRoute);
+                  },
+                  child: Text(
+                    "Orders",
+                    style: TextStyle(color: MyTheme.canvasDarkColor),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    shape: StadiumBorder(),
+                    backgroundColor: MyTheme.cardColor))),
+            Container(
+              width: size.width * 0.5,
+              height: size.height * 0.05,
+              child: ElevatedButton(
+                onPressed: () {
                   Navigator.pushNamed(context, MyRoutes.adminSearchPageRoute);
                 },
                 child: Text("Search an Item", 
@@ -64,29 +86,19 @@ class AdminPage extends StatelessWidget {
               width: size.width * 0.5,
               height: size.height * 0.05,
               child: ElevatedButton(
-                onPressed: () {},
-                child: Text("Add New Item", 
-                style: TextStyle(color: MyTheme.canvasDarkColor),
+                onPressed: () async {
+                  await signOut();
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, MyRoutes.demoPageRoute);
+                },
+                child: Text(
+                  "Logout",
+                  style: TextStyle(color: MyTheme.canvasDarkColor),
                 ),
-                style: ElevatedButton.styleFrom(shape: StadiumBorder()
-                ,
-                  backgroundColor: MyTheme.cardColor
-                ))
-            ),
-                Container(
-                    width: size.width * 0.5,
-                    height: size.height * 0.05,
-                    child: ElevatedButton(
-                        onPressed: () async {
-                          await GoogleSignIn().signOut();
-                        },
-                        child: Text(
-                          "Logout",
-                          style: TextStyle(color: MyTheme.canvasDarkColor),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            shape: StadiumBorder(),
-                            backgroundColor: MyTheme.fontColor)))
+                style: ElevatedButton.styleFrom(
+                  shape: StadiumBorder(),
+                  backgroundColor: MyTheme.fontColor)
+            ))
           ],
         )),
       ),

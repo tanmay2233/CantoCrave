@@ -10,7 +10,6 @@ import 'cart_model.dart';
 class CartListProvider extends ChangeNotifier{
 
   List<CartModel> cartList = [];
-
   double cartTotal = 0;
 
   Future<int> getItemQuantity(String itemName) async {
@@ -178,7 +177,7 @@ class CartListProvider extends ChangeNotifier{
 
 
 
-  Future<void> uploadCartItems() async {
+  Future<void> uploadCartItems(String orderId) async {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final user = auth.currentUser;
@@ -190,11 +189,6 @@ class CartListProvider extends ChangeNotifier{
     final userDocRef = firestore.collection('orders').doc(user.uid);
     final orderHistoryCollectionRef = userDocRef.collection('orderHistory');
 
-    // Generate a random 6-digit order ID
-    final orderId =
-      (100000 + DateTime.now().millisecondsSinceEpoch % 900000).toString();
-
-    // Create a new order document with order date
     final orderDocRef = orderHistoryCollectionRef.doc(orderId);
     await orderDocRef.set({
       'orderDate': FieldValue.serverTimestamp(),
@@ -204,6 +198,24 @@ class CartListProvider extends ChangeNotifier{
 
     await cartRef.delete();
   }
+
 }
+  Future<void> placeOrder(String orderId)async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        var orderedItems = await getCartItems();
+        final orderData = {
+          'orderId': orderId,
+          'username': user.displayName,
+          'items': orderedItems,
+          'orderDate': FieldValue.serverTimestamp()
+        };
+        await _firestore.collection('newOrders').add(orderData);
+      }
+    } catch (e) {
+      print("Error placing order: $e");
+    }
+  }
 
 }

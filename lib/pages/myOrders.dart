@@ -43,7 +43,9 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
             ),
           ),
           child: StreamBuilder<QuerySnapshot>(
-            stream: _firestore.collection('orders').doc(_user!.uid).collection('orderHistory').snapshots(),
+            stream: _firestore.collection('orders').doc(_user!.uid).
+            collection('orderHistory').orderBy('orderDate', descending: true)
+            .snapshots(),
           builder: (context, snapshot) {
 
             if (snapshot.connectionState == ConnectionState.waiting) {

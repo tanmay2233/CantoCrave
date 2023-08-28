@@ -12,22 +12,6 @@ class CartListProvider extends ChangeNotifier {
   List<CartModel> cartList = [];
   double cartTotal = 0;
 
-  String initialRoute = '';
-
-  String getInitialRoute(){
-    var user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      if (user.email?.trim() != 'tanmaykamleshjain@gmail.com') {
-        initialRoute = MyRoutes.bottomBar;
-      } else {
-        initialRoute = MyRoutes.adminPageRoute;
-      }
-    } else {
-      initialRoute = MyRoutes.welcomePageRoute;
-    }
-    return initialRoute;
-  }
-
   Future<int> getQuantity(String itemName) async {
     final QuerySnapshot<Map<String, dynamic>> querySnapshot =
         await FirebaseFirestore.instance.collection('Menu_Items').get();
@@ -111,27 +95,33 @@ class CartListProvider extends ChangeNotifier {
 
       // Get the existing cart items
       final cartData = await cartRef.get();
-      final cartItems =
-          List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
 
-      final existingCartItemIndex =
-          cartItems.indexWhere((item) => item['name'] == name);
+      // Check if the cart document exists
+      if (cartData.exists) {
+        final cartItems =
+            List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
 
-      if (existingCartItemIndex != -1) {
-        final existingCartItem = cartItems[existingCartItemIndex];
-        final currentQuantity = existingCartItem['quantity'];
+        final existingCartItemIndex =
+            cartItems.indexWhere((item) => item['name'] == name);
 
-        if (currentQuantity > 1) {
-          cartItems[existingCartItemIndex]['quantity'] = currentQuantity - 1;
-        } else {
-          cartItems.removeAt(existingCartItemIndex);
+        if (existingCartItemIndex != -1) {
+          final existingCartItem = cartItems[existingCartItemIndex];
+          final currentQuantity = existingCartItem['quantity'];
+
+          if (currentQuantity > 1) {
+            cartItems[existingCartItemIndex]['quantity'] = currentQuantity - 1;
+          } else {
+            cartItems.removeAt(existingCartItemIndex);
+          }
+
+          // Update the 'items' field
+          await cartRef.set({'items': cartItems}, SetOptions(merge: true));
+          notifyListeners();
         }
-
-        await cartRef.set({'items': cartItems}, SetOptions(merge: true));
-        notifyListeners();
       }
     }
   }
+
 
   Future<bool> checkCartItem(String itemName) async {
     final cartRef = FirebaseFirestore.instance.collection('cart');

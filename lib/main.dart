@@ -14,6 +14,7 @@ import 'package:canto_crave/pages/noodles_page.dart';
 import 'package:canto_crave/pages/profile_page.dart';
 import 'package:canto_crave/pages/rolls_page.dart';
 import 'package:canto_crave/routes/routes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -37,47 +38,57 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  static String _initialRoute = '';
+  // String _initialRoute = '';
 
-  static String getRoute(){
-    return _initialRoute;
-  }
+  String initialRoute = '';
+
+    var user = FirebaseAuth.instance.currentUser;
+  // String getInitialRoute() {
+  //   var user = FirebaseAuth.instance.currentUser;
+  //   if (user != null) {
+  //     if (user.email?.trim() != 'tanmaykamleshjain@gmail.com') {
+  //       initialRoute = MyRoutes.bottomBar;
+  //     } else {
+  //       initialRoute = MyRoutes.adminPageRoute;
+  //     }
+  //   } else {
+  //     initialRoute = MyRoutes.welcomePageRoute;
+  //   }
+  //   return initialRoute;
+  // }
 
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CartListProvider())
       ],
-      child: Consumer<CartListProvider>(
-        builder: (context, value, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            fontFamily: 'elMessiri',
-          ),
-          title: 'Flutter Demo',
-          routes: {
-            MyRoutes.homeRoute: (context) => HomePage(),
-            MyRoutes.cartRoute: (context) => CartPage(),
-            MyRoutes.profileRoute: (context) => ProfilePage(),
-            MyRoutes.bottomBar: (context) => BottomBarPage(),
-            MyRoutes.burgerSandwichRoute: (context) => BurgerSandwichPage(),
-            MyRoutes.noodlesRoute: (context) => NoodlesPage(),
-            MyRoutes.maggieOmeletteRoute: (context) => MaggieOmelettePage(),
-            MyRoutes.chinesePageRoute: (context) => ChinesePage(),
-            MyRoutes.beveragesRoute: (context) => BeveragesPage(),
-            MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
-            MyRoutes.adminPageRoute: (context) => AdminPage(),
-            MyRoutes.editItemPageRoute: (context) => EditItemPage(),
-            MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
-            MyRoutes.welcomePageRoute: (context) => DemoPage(),
-            MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
-            MyRoutes.paymentPageRoute: (context) => PaymentPage(),
-            MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
-          },
-          initialRoute: value.getInitialRoute()
-        );
-        } 
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'elMessiri',
+        ),
+        title: 'Flutter Demo',
+        routes: {
+          MyRoutes.homeRoute: (context) => HomePage(),
+          MyRoutes.cartRoute: (context) => CartPage(),
+          MyRoutes.profileRoute: (context) => ProfilePage(),
+          MyRoutes.bottomBar: (context) => BottomBarPage(),
+          MyRoutes.burgerSandwichRoute: (context) => BurgerSandwichPage(),
+          MyRoutes.noodlesRoute: (context) => NoodlesPage(),
+          MyRoutes.maggieOmeletteRoute: (context) => MaggieOmelettePage(),
+          MyRoutes.chinesePageRoute: (context) => ChinesePage(),
+          MyRoutes.beveragesRoute: (context) => BeveragesPage(),
+          MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
+          MyRoutes.adminPageRoute: (context) => AdminPage(),
+          MyRoutes.editItemPageRoute: (context) => EditItemPage(),
+          MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
+          MyRoutes.welcomePageRoute: (context) => DemoPage(),
+          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
+          MyRoutes.paymentPageRoute: (context) => PaymentPage(),
+          MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
+        },
+        initialRoute: user != null ? MyRoutes.bottomBar
+          : MyRoutes.welcomePageRoute
       ),
     );
   }

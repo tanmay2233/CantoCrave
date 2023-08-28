@@ -109,7 +109,7 @@ class _DemoPageState extends State<DemoPage> {
                           final user = await AuthService().signInWithGoogle();
                           Navigator.pop(context); 
                           if (user != null) {
-                            Navigator.pushNamed(context, value.getInitialRoute());
+                            Navigator.pushNamed(context, MyRoutes.bottomBar);
                           } 
                         } 
                         catch (e) {

@@ -1,5 +1,7 @@
+import 'package:canto_crave/cart_list_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
 import '../routes/routes.dart';
@@ -88,47 +90,50 @@ class _DemoPageState extends State<DemoPage> {
                 children: [
                   Image.asset('images/logo.png',
                     height: size.height*0.25,),
-                  SizedBox(
-                    
-                    width: size.width*0.55,
-                    child: ElevatedButton(onPressed: () async {
-                      try {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (BuildContext context) {
-                            return Center(
-                              child: CircularProgressIndicator(color: MyTheme.cardColor),
-                            );
-                          },
-                        );
-                        final user = await AuthService().signInWithGoogle();
-                        Navigator.pop(context); // Close the progress indicator dialog
-                        if (user != null) {
-                          Navigator.pushNamed(context, MyRoutes.bottomBar);
+                  Consumer<CartListProvider>(
+                    builder: (context, value, child) => 
+                    SizedBox(
+                      
+                      width: size.width*0.55,
+                      child: ElevatedButton(onPressed: () async {
+                        try {
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (BuildContext context) {
+                              return Center(
+                                child: CircularProgressIndicator(color: MyTheme.cardColor),
+                              );
+                            },
+                          );
+                          final user = await AuthService().signInWithGoogle();
+                          Navigator.pop(context); 
+                          if (user != null) {
+                            Navigator.pushNamed(context, MyRoutes.bottomBar);
+                          } 
                         } 
-                      } 
-                      catch (e) {
-                      }
-                    },
-                    
-                    style: ElevatedButton.styleFrom(
-                      side: BorderSide(color: MyTheme.cardColor, 
-                        width: size.width*0.006),
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(size.width*0.05)
+                        catch (e) {
+                        }
+                      },
+                      
+                      style: ElevatedButton.styleFrom(
+                        side: BorderSide(color: MyTheme.cardColor, 
+                          width: size.width*0.006),
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(size.width*0.05)
+                        ),
                       ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Image.asset("images/google_logo.png", height: size.height*0.03,),
+                          Text("Login with Google", style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: MyTheme.canvasDarkColor),),
+                        ],
+                      )),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Image.asset("images/google_logo.png", height: size.height*0.03,),
-                        Text("Login with Google", style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: MyTheme.canvasDarkColor),),
-                      ],
-                    )),
                   ),
                 ],
               );

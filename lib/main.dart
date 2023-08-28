@@ -16,7 +16,6 @@ import 'package:canto_crave/pages/rolls_page.dart';
 import 'package:canto_crave/routes/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'admin/adminPage.dart';
@@ -30,15 +29,35 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
+
 class MyApp extends StatefulWidget {
+
   @override
   State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
+
+  // String _initialRoute = '';
+
+  String initialRoute = '';
+
+    var user = FirebaseAuth.instance.currentUser;
+  // String getInitialRoute() {
+  //   var user = FirebaseAuth.instance.currentUser;
+  //   if (user != null) {
+  //     if (user.email?.trim() != 'tanmaykamleshjain@gmail.com') {
+  //       initialRoute = MyRoutes.bottomBar;
+  //     } else {
+  //       initialRoute = MyRoutes.adminPageRoute;
+  //     }
+  //   } else {
+  //     initialRoute = MyRoutes.welcomePageRoute;
+  //   }
+  //   return initialRoute;
+  // }
+
   Widget build(BuildContext context) {
-    
-    final user = FirebaseAuth.instance.currentUser;
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => CartListProvider())
@@ -46,7 +65,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: GoogleFonts.elMessiri().fontFamily,
+          fontFamily: 'elMessiri',
         ),
         title: 'Flutter Demo',
         routes: {
@@ -63,13 +82,13 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.adminPageRoute: (context) => AdminPage(),
           MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
-          MyRoutes.demoPageRoute: (context) => DemoPage(),
+          MyRoutes.welcomePageRoute: (context) => DemoPage(),
           MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
           MyRoutes.paymentPageRoute: (context) => PaymentPage(),
           MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
         },
-        // initialRoute: (user == null)? MyRoutes.demoPageRoute : MyRoutes.bottomBar,
-        initialRoute: MyRoutes.adminPageRoute,
+        initialRoute: user != null ? MyRoutes.bottomBar
+          : MyRoutes.welcomePageRoute
       ),
     );
   }

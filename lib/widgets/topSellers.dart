@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_layout_grid/flutter_layout_grid.dart';
 
 import '../Theme/themes.dart';
 import 'addToCart.dart';
@@ -52,7 +51,9 @@ class TopSellers extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1),
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Padding(
+                itemBuilder: (context, index) {
+                  int availableQty = filteredDocs[index]['quantity'];
+                return Padding(
                     padding: EdgeInsets.all(size.width * 0.018),
                     child: Container(
                       decoration: BoxDecoration(
@@ -121,14 +122,18 @@ class TopSellers extends StatelessWidget {
                                       price:
                                           filteredDocs[index]['price'].toDouble(),
                                       image: filteredDocs[index]['image'],
-                                      isVeg: filteredDocs[index]['isVeg']),
+                                      isVeg: filteredDocs[index]['isVeg'],
+                                      availableQty: availableQty,
+                                      ),
                                 ],
                               )
                             ],
                           ),
                         ],
                       ),
-                    ))),
+                    ));
+                } 
+            )
           );
         });
   }

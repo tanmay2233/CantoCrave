@@ -1,10 +1,9 @@
 // ignore_for_file: unused_local_variable
-
-import 'package:canto_crave/routes/routes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'cart_model.dart';
 
@@ -26,30 +25,32 @@ class CartListProvider extends ChangeNotifier {
   }
 
   Future<int> getItemQuantityFromCart(String itemName) async {
-    final cartRef = FirebaseFirestore.instance.collection('cart');
+    final user = _auth.currentUser;
 
-    final cartSnapshot = await cartRef.get();
-    if (cartSnapshot.size > 0) {
-      for (var cartDoc in cartSnapshot.docs) {
-        final cartData = cartDoc.data();
+    if (user != null) {
+      final cartRef =
+          FirebaseFirestore.instance.collection('cart').doc(user.uid);
+      final cartDocSnapshot = await cartRef.get();
+
+      if (cartDocSnapshot.exists) {
+        final cartData = cartDocSnapshot.data();
         final cartItems =
-            List<Map<String, dynamic>>.from(cartData['items'] ?? []);
+            List<Map<String, dynamic>>.from(cartData?['items'] ?? []);
 
         final existingCartItem = cartItems.firstWhereOrNull(
           (item) => item['name'] == itemName,
         );
 
         if (existingCartItem != null) {
-          notifyListeners();
           return existingCartItem[
-              'quantity']; // Return the quantity of the item
+              'quantity']; 
         }
       }
-      notifyListeners();
     }
-    notifyListeners();
-    return 0; // Return 0 if item not found in the cart
+
+    return 0; 
   }
+
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -81,19 +82,24 @@ class CartListProvider extends ChangeNotifier {
         }
 
         await cartRef.set({'items': cartItems}, SetOptions(merge: true));
-        notifyListeners(); // Notify listeners once after making changes
+
+        final updatedCartData = await cartRef.get();
+        final updatedCartItems =
+            updatedCartData.data()?['items'] as List<dynamic>;
+
+        notifyListeners(); 
       }
     } catch (e) {
       print("Error adding to cart: $e");
     }
   }
 
+
   Future<void> decreaseQuantity(String name) async {
     final user = _auth.currentUser;
     if (user != null) {
       final cartRef = _firestore.collection('cart').doc(user.uid);
 
-      // Get the existing cart items
       final cartData = await cartRef.get();
 
       // Check if the cart document exists
@@ -124,32 +130,34 @@ class CartListProvider extends ChangeNotifier {
 
 
   Future<bool> checkCartItem(String itemName) async {
-    final cartRef = FirebaseFirestore.instance.collection('cart');
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final cartRef =
+            FirebaseFirestore.instance.collection('cart').doc(user.uid);
+        final cartSnapshot = await cartRef.get();
 
-    final cartSnapshot = await cartRef.get();
-    if (cartSnapshot.size > 0) {
-      for (var cartDoc in cartSnapshot.docs) {
-        final cartData = cartDoc.data();
-        final cartItems =
-            List<Map<String, dynamic>>.from(cartData['items'] ?? []);
+        if (cartSnapshot.exists) {
+          final cartData = cartSnapshot.data();
+          final cartItems =
+              List<Map<String, dynamic>>.from(cartData?['items'] ?? []);
 
-        final existingCartItem = cartItems.firstWhereOrNull(
-          (item) => item['name'] == itemName,
-        );
+          final existingCartItem = cartItems.firstWhereOrNull(
+            (item) => item['name'] == itemName,
+          );
 
-        if (existingCartItem != null) {
-          return true;
-        } else {
-          return false;
+          if (existingCartItem != null) {
+            return true;
+          }
         }
       }
-    } else {
-      notifyListeners();
-      return false;
+    } catch (e) {
+      print("Error checking cart item: $e");
     }
-    notifyListeners();
+
     return false;
   }
+
 
   Future<List<Map<String, dynamic>>> getCartItems() async {
     final FirebaseAuth auth = FirebaseAuth.instance;
@@ -233,5 +241,97 @@ class CartListProvider extends ChangeNotifier {
     } catch (e) {
       print("Error placing order: $e");
     }
+  }
+
+
+  Future<bool> updateMenuItemsAfterOrder(BuildContext context) async {
+    bool allItemsAvailbale = true;
+
+    final cartSnapshot = await FirebaseFirestore.instance
+        .collection('cart')
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .get();
+    final cartData = cartSnapshot.data();
+
+    final menuSnapshot =
+        await FirebaseFirestore.instance.collection('Menu_Items').get();
+    final menuItems = menuSnapshot.docs;
+
+    // Iterate through user's cart items
+    if(cartData!=null && cartData['items']!= null){
+      for (final cartItem in cartData['items']) {
+      final cartItemName = cartItem['name'];
+      final cartItemQuantity = cartItem['quantity'];
+
+      final menuItem = menuItems.firstWhere(
+        (item) => item['name'] == cartItemName,
+      );
+      final menuItemQuantity = menuItem['quantity'];
+
+      // Reduce the menu item's quantity
+      final updatedMenuItemQuantity = menuItemQuantity - cartItemQuantity;
+      
+      if (updatedMenuItemQuantity < 0) {
+        var snackBar = SnackBar(
+          content:
+            Text("Desired Quantity of ${cartItem['name']} Not Available"),
+          duration: const Duration(seconds: 3),
+        );
+        allItemsAvailbale = false;
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        return false;
+      }
+    }}
+    if (allItemsAvailbale == true && (cartData!=null && cartData['items']!= null)) {
+      for (final cartItem in cartData['items']) {
+        final cartItemName = cartItem['name'];
+        final cartItemQuantity = cartItem['quantity'];
+
+        final menuItem = menuItems.firstWhere(
+          (item) => item['name'] == cartItemName,
+        );
+        final menuItemQuantity = menuItem['quantity'];
+
+        final updatedMenuItemQuantity = menuItemQuantity - cartItemQuantity;
+
+        await FirebaseFirestore.instance
+            .collection('Menu_Items')
+            .doc(menuItem.id)
+            .update({
+          'quantity': updatedMenuItemQuantity,
+        });
+      }
+      return true;
+    }
+    return false;
+  }
+
+
+  Future<void> placeOrderAndUploadItems(BuildContext context) async {
+    var orderId =
+      (100000 + DateTime.now().millisecondsSinceEpoch % 900000).toString();
+
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final user = auth.currentUser;
+
+    if (user != null) {
+      final cartRef = firestore.collection('cart').doc(user.uid);
+      final cartData = await cartRef.get();
+      if (cartData.exists) {
+        final cartItems =
+          List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
+        if(cartItems.length > 0){
+          bool allItemsAvailbale = await updateMenuItemsAfterOrder(context);
+          if(allItemsAvailbale){
+            await placeOrder(orderId);
+            await uploadCartItems(orderId);
+          }
+        }
+      }
+  }
+
+
+  
   }
 }

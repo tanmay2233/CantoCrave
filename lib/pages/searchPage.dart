@@ -74,7 +74,7 @@ class _SearchPageState extends State<SearchPage> {
               ListView.builder(
                 itemCount: allItems.length,
                 itemBuilder: (context, index) {
-                  int availableQty = allItems[index]['quantity'];
+                  int availableQty = allItems[index]['quantity'].toInt();
                   return Card(
                         elevation: 4,
                         shape: RoundedRectangleBorder(

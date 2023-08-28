@@ -5,7 +5,7 @@
     "isVeg": true,
     "name": "Veg Noodles",
     "price": 60,
-    "order": 1,
+    "itemId": 1,
     "quantity": 5
   },
   {
@@ -14,7 +14,7 @@
     "isVeg": true,
     "name": "Veg Schezwan Noodles",
     "price": 45,
-    "order": 2,
+    "itemId": 2,
     "quantity": 5
   },
   {
@@ -23,7 +23,7 @@
     "isVeg": false,
     "name": "Egg Noodles",
     "price": 50,
-    "order": 3,
+    "itemId": 3,
     "quantity": 5
   },
   {
@@ -32,7 +32,7 @@
     "isVeg": true,
     "name": "White Sauce Pasta",
     "price": 60,
-    "order": 4,
+    "itemId": 4,
     "quantity": 5
   },
   {
@@ -41,7 +41,7 @@
     "isVeg": true,
     "name": "Red Sauce Pasta",
     "price": 60,
-    "order": 5,
+    "itemId": 5,
     "quantity": 5
   },
   {
@@ -50,7 +50,7 @@
     "isVeg": false,
     "name": "Chicken White Sauce Pasta",
     "price": 75,
-    "order": 6,
+    "itemId": 6,
     "quantity": 5
   },
   {
@@ -59,7 +59,7 @@
     "isVeg": false,
     "name": "Chicken Red Sauce Pasta",
     "price": 60,
-    "order": 7,
+    "itemId": 7,
     "quantity": 5
   },
   {
@@ -68,7 +68,7 @@
     "isVeg": true,
     "name": "Veg Burger",
     "price": 45,
-    "order": 8,
+    "itemId": 8,
     "quantity": 5
   },
   {
@@ -77,7 +77,7 @@
     "isVeg": false,
     "name": "Chicken Burger",
     "price": 60,
-    "order": 9,
+    "itemId": 9,
     "quantity": 5
   },
   {
@@ -86,7 +86,7 @@
     "isVeg": false,
     "name": "Cheese Chicken Burger",
     "price": 80,
-    "order": 10,
+    "itemId": 10,
     "quantity": 5
   },
   {
@@ -95,7 +95,7 @@
     "isVeg": true,
     "name": "Veg Cheese Burger",
     "price": 65,
-    "order": 11,
+    "itemId": 11,
     "quantity": 5
   },
   {
@@ -104,7 +104,7 @@
     "isVeg": true,
     "name": "Paneer Sandwich",
     "price": 30,
-    "order": 12,
+    "itemId": 12,
     "quantity": 5
   },
   {
@@ -113,7 +113,7 @@
     "isVeg": true,
     "name": "Veg Sandwich",
     "price": 25,
-    "order": 13,
+    "itemId": 13,
     "quantity": 5
   },
   {
@@ -122,7 +122,7 @@
     "isVeg": false,
     "name": "Omlette Sandwich",
     "price": 30,
-    "order": 14,
+    "itemId": 14,
     "quantity": 5
   },
   {
@@ -131,7 +131,7 @@
     "isVeg": true,
     "name": "Veg Cheese Sandwich",
     "price": 40,
-    "order": 15,
+    "itemId": 15,
     "quantity": 5
   },
   {
@@ -140,7 +140,7 @@
     "isVeg": true,
     "name": "Paneer Cheese Sandwich",
     "price": 45,
-    "order": 16,
+    "itemId": 16,
     "quantity": 5
   },
   {
@@ -149,7 +149,7 @@
     "isVeg": false,
     "name": "Omlette Cheese Sandwich",
     "price": 45,
-    "order": 17,
+    "itemId": 17,
     "quantity": 5
   },
   {
@@ -158,7 +158,7 @@
     "isVeg": true,
     "name": "Plain Maggie",
     "price": 20,
-    "order": 18,
+    "itemId": 18,
     "quantity": 5
   },
   {
@@ -167,7 +167,7 @@
     "isVeg": false,
     "name": "Egg Maggie",
     "price": 30,
-    "order": 19,
+    "itemId": 19,
     "quantity": 5
   },
   {
@@ -176,7 +176,7 @@
     "isVeg": false,
     "name": "Double Egg Maggie",
     "price": 35,
-    "order": 20,
+    "itemId": 20,
     "quantity": 5
   },
   {
@@ -185,7 +185,7 @@
     "isVeg": true,
     "name": "Cheese Maggie",
     "price": 35,
-    "order": 21,
+    "itemId": 21,
     "quantity": 5
   },
   {
@@ -194,7 +194,7 @@
     "isVeg": true,
     "name": "Veg Maggie",
     "price": 25,
-    "order": 22,
+    "itemId": 22,
     "quantity": 5
   },
   {
@@ -203,7 +203,7 @@
     "isVeg": false,
     "name": "Boiled Egg",
     "price": 15,
-    "order": 23,
+    "itemId": 23,
     "quantity": 5
   },
   {
@@ -212,7 +212,7 @@
     "isVeg": false,
     "name": "Plain Omlette",
     "price": 20,
-    "order": 24,
+    "itemId": 24,
     "quantity": 5
   },
   {
@@ -221,7 +221,7 @@
     "isVeg": false,
     "name": "Masala Omlette",
     "price": 25,
-    "order": 25,
+    "itemId": 25,
     "quantity": 5
   },
   {
@@ -230,7 +230,7 @@
     "isVeg": false,
     "name": "Cheese Omlette",
     "price": 40,
-    "order": 26,
+    "itemId": 26,
     "quantity": 5
   },
   {
@@ -239,7 +239,7 @@
     "isVeg": true,
     "name": "French Fries",
     "price": 30,
-    "order": 27,
+    "itemId": 27,
     "quantity": 5
   },
   {
@@ -248,7 +248,7 @@
     "isVeg": true,
     "name": "Gobi Chilly",
     "price": 45,
-    "order": 28,
+    "itemId": 28,
     "quantity": 5
   },
   {
@@ -257,7 +257,7 @@
     "isVeg": true,
     "name": "Gobi Manchurian",
     "price": 45,
-    "order": 29,
+    "itemId": 29,
     "quantity": 5
   },
   {
@@ -266,7 +266,7 @@
     "isVeg": false,
     "name": "Egg Chilly",
     "price": 50,
-    "order": 30,
+    "itemId": 30,
     "quantity": 5
   },
   {
@@ -275,7 +275,7 @@
     "isVeg": false,
     "name": "Chicken Chilly",
     "price": 75,
-    "order": 31,
+    "itemId": 31,
     "quantity": 5
   },
   {
@@ -284,7 +284,7 @@
     "isVeg": false,
     "name": "Chicken Pepper Fry",
     "price": 75,
-    "order": 32,
+    "itemId": 32,
     "quantity": 5
   },
   {
@@ -293,7 +293,7 @@
     "isVeg": false,
     "name": "Chicken Manchurian",
     "price": 75,
-    "order": 33,
+    "itemId": 33,
     "quantity": 5
   },
   {
@@ -302,7 +302,7 @@
     "isVeg": true,
     "name": "Paneer Chilly",
     "price": 60,
-    "order": 34,
+    "itemId": 34,
     "quantity": 5
   },
   {
@@ -311,7 +311,7 @@
     "isVeg": true,
     "name": "Paneer Pepper Fry",
     "price": 60,
-    "order": 35,
+    "itemId": 35,
     "quantity": 5
   },
   {
@@ -320,7 +320,7 @@
     "isVeg": true,
     "name": "Paneer Manchurian",
     "price": 60,
-    "order": 36,
+    "itemId": 36,
     "quantity": 5
   },
   {
@@ -329,7 +329,7 @@
     "isVeg": true,
     "name": "Chilly Baby Corn",
     "price": 55,
-    "order": 37,
+    "itemId": 37,
     "quantity": 5
   },
   {
@@ -338,7 +338,7 @@
     "isVeg": true,
     "name": "Baby Corn Manchurian",
     "price": 55,
-    "order": 38,
+    "itemId": 38,
     "quantity": 5
   },
   {
@@ -347,7 +347,7 @@
     "isVeg": true,
     "name": "Paneer Baby Corn Chilly",
     "price": 60,
-    "order": 39,
+    "itemId": 39,
     "quantity": 5
   },
   {
@@ -356,7 +356,7 @@
     "isVeg": true,
     "name": "Paneer Baby Corn Manchurian",
     "price": 60,
-    "order": 40,
+    "itemId": 40,
     "quantity": 5
   },
   {
@@ -365,7 +365,7 @@
     "isVeg": true,
     "name": "Paneer Mushroom Chilly",
     "price": 60,
-    "order": 41,
+    "itemId": 41,
     "quantity": 5
   },
   {
@@ -374,7 +374,7 @@
     "isVeg": true,
     "name": "Paneer Mushroom Manchurian",
     "price": 60,
-    "order": 42,
+    "itemId": 42,
     "quantity": 5
   },
   {
@@ -383,7 +383,7 @@
     "isVeg": true,
     "name": "Veg Schezwan Fried Rice",
     "price": 50,
-    "order": 43,
+    "itemId": 43,
     "quantity": 5
   },
   {
@@ -392,7 +392,7 @@
     "isVeg": true,
     "name": "Veg Fried Rice",
     "price": 45,
-    "order": 44,
+    "itemId": 44,
     "quantity": 5
   },
   {
@@ -401,7 +401,7 @@
     "isVeg": false,
     "name": "Egg Fried Rice",
     "price": 50,
-    "order": 45,
+    "itemId": 45,
     "quantity": 5
   },
   {
@@ -410,7 +410,7 @@
     "isVeg": false,
     "name": "Egg Schezwan Fried Rice",
     "price": 60,
-    "order": 46,
+    "itemId": 46,
     "quantity": 5
   },
   {
@@ -419,7 +419,7 @@
     "isVeg": false,
     "name": "Chicken Fried Rice",
     "price": 65,
-    "order": 47,
+    "itemId": 47,
     "quantity": 5
   },
   {
@@ -428,7 +428,7 @@
     "isVeg": false,
     "name": "Chicken Schezwan Fried Rice",
     "price": 45,
-    "order": 48,
+    "itemId": 48,
     "quantity": 5
   },
   {
@@ -437,7 +437,7 @@
     "isVeg": true,
     "name": "Paneer Curry with Paratha",
     "price": 50,
-    "order": 49,
+    "itemId": 49,
     "quantity": 5
   },
   {
@@ -446,7 +446,7 @@
     "isVeg": false,
     "name": "Egg Curry with Paratha",
     "price": 40,
-    "order": 50,
+    "itemId": 50,
     "quantity": 5
   },
   {
@@ -455,7 +455,7 @@
     "isVeg": false,
     "name": "Chicken Curry with Paratha",
     "price": 75,
-    "order": 51,
+    "itemId": 51,
     "quantity": 5
   },
   {
@@ -464,7 +464,7 @@
     "isVeg": true,
     "name": "Veg Momo",
     "price": 25,
-    "order": 52,
+    "itemId": 52,
     "quantity": 5
   },
   {
@@ -473,7 +473,7 @@
     "isVeg": false,
     "name": "Chicken Momo",
     "price": 35,
-    "order": 53,
+    "itemId": 53,
     "quantity": 5
   },
   {
@@ -482,7 +482,7 @@
     "isVeg": true,
     "name": "Paneer Momo",
     "price": 30,
-    "order": 54,
+    "itemId": 54,
     "quantity": 5
   },
   {
@@ -491,7 +491,7 @@
     "isVeg": true,
     "name": "Veg Kathi Roll",
     "price": 50,
-    "order": 55,
+    "itemId": 55,
     "quantity": 5
   },
   {
@@ -500,7 +500,7 @@
     "isVeg": false,
     "name": "Egg Kathi Roll",
     "price": 60,
-    "order": 56,
+    "itemId": 56,
     "quantity": 5
   },
   {
@@ -509,7 +509,7 @@
     "isVeg": false,
     "name": "Chicken Kathi Roll",
     "price": 70,
-    "order": 57,
+    "itemId": 57,
     "quantity": 5
   },
   {
@@ -518,7 +518,7 @@
     "isVeg": true,
     "name": "Fresh Juice",
     "price": 35,
-    "order": 58,
+    "itemId": 58,
     "quantity": 5
   },
   {
@@ -527,7 +527,7 @@
     "isVeg": true,
     "name": "Sweet Lime Juice",
     "price": 30,
-    "order": 59,
+    "itemId": 59,
     "quantity": 5
   },
   {
@@ -536,7 +536,7 @@
     "isVeg": true,
     "name": "Watermelon Juice",
     "price": 30,
-    "order": 60,
+    "itemId": 60,
     "quantity": 5
   },
   {
@@ -545,7 +545,7 @@
     "isVeg": true,
     "name": "Pineapple Juice",
     "price": 15,
-    "order": 61,
+    "itemId": 61,
     "quantity": 5
   },
   {
@@ -554,7 +554,7 @@
     "isVeg": true,
     "name": "Lemon Juice",
     "price": 20,
-    "order": 62,
+    "itemId": 62,
     "quantity": 5
   },
   {
@@ -563,7 +563,7 @@
     "isVeg": true,
     "name": "Tea",
     "price": 10,
-    "order": 63,
+    "itemId": 63,
     "quantity": 5
   },
   {
@@ -572,7 +572,7 @@
     "isVeg": true,
     "name": "Coffee",
     "price": 10,
-    "order": 64,
+    "itemId": 64,
     "quantity": 5
   },
   {
@@ -581,7 +581,7 @@
     "isVeg": true,
     "name": "Lemon Tea",
     "price": 10,
-    "order": 65,
+    "itemId": 65,
     "quantity": 5
   },
   {
@@ -590,7 +590,7 @@
     "isVeg": true,
     "name": "Masala Tea",
     "price": 10,
-    "order": 66,
+    "itemId": 66,
     "quantity": 5
   },
   {
@@ -599,7 +599,7 @@
     "isVeg": true,
     "name": "Sweet Lassi",
     "price": 40,
-    "order": 67,
+    "itemId": 67,
     "quantity": 5
   },
   {
@@ -608,7 +608,7 @@
     "isVeg": true,
     "name": "Salt Lassi",
     "price": 40,
-    "order": 68,
+    "itemId": 68,
     "quantity": 5
   },
   {
@@ -617,7 +617,7 @@
     "isVeg": true,
     "name": "Mango Lassi",
     "price": 50,
-    "order": 69,
+    "itemId": 69,
     "quantity": 5
   },
   {
@@ -626,7 +626,7 @@
     "isVeg": true,
     "name": "Strawberry Lassi",
     "price": 50,
-    "order": 70,
+    "itemId": 70,
     "quantity": 5
   },
   {
@@ -635,7 +635,7 @@
     "isVeg": true,
     "name": "Black Current Lassi",
     "price": 60,
-    "order": 71,
+    "itemId": 71,
     "quantity": 5
   },
   {
@@ -644,7 +644,7 @@
     "isVeg": true,
     "name": "Chocolate Lassi",
     "price": 60,
-    "order": 72,
+    "itemId": 72,
     "quantity": 5
   },
   {
@@ -653,7 +653,7 @@
     "isVeg": true,
     "name": "Kesar Badam Lassi",
     "price": 60,
-    "order": 73,
+    "itemId": 73,
     "quantity": 5
   },
   {
@@ -662,7 +662,7 @@
     "isVeg": true,
     "name": "Rose Lassi",
     "price": 40,
-    "order": 74,
+    "itemId": 74,
     "quantity": 5
   },
   {
@@ -671,7 +671,7 @@
     "isVeg": true,
     "name": "Classic Milkshake",
     "price": 50,
-    "order": 75,
+    "itemId": 75,
     "quantity": 5
   },
   {
@@ -680,7 +680,7 @@
     "isVeg": true,
     "name": "Vanilla Milkshake",
     "price": 50,
-    "order": 76,
+    "itemId": 76,
     "quantity": 5
   },
   {
@@ -689,7 +689,7 @@
     "isVeg": true,
     "name": "Strawberry Milkshake",
     "price": 50,
-    "order": 77,
+    "itemId": 77,
     "quantity": 5
   },
   {
@@ -698,7 +698,7 @@
     "isVeg": true,
     "name": "Mango Milkshake",
     "price": 50,
-    "order": 78,
+    "itemId": 78,
     "quantity": 5
   },
   {
@@ -707,7 +707,7 @@
     "isVeg": true,
     "name": "Chocolate Milkshake",
     "price": 50,
-    "order": 79,
+    "itemId": 79,
     "quantity": 5
   },
   {
@@ -716,7 +716,7 @@
     "isVeg": true,
     "name": "Oreo Shake",
     "price": 50,
-    "order": 80,
+    "itemId": 80,
     "quantity": 5
   },
   {
@@ -725,7 +725,7 @@
     "isVeg": true,
     "name": "Classic Milkshake",
     "price": 50,
-    "order": 81,
+    "itemId": 81,
     "quantity": 5
   },
   {
@@ -734,7 +734,7 @@
     "isVeg": true,
     "name": "Kesar Badam Milkshake",
     "price": 60,
-    "order": 82,
+    "itemId": 82,
     "quantity": 5
   },
   {
@@ -743,7 +743,7 @@
     "isVeg": true,
     "name": "Snickers Milkshake",
     "price": 60,
-    "order": 83,
+    "itemId": 83,
     "quantity": 5
   },
   {
@@ -752,7 +752,7 @@
     "isVeg": true,
     "name": "Nutella Milkshake",
     "price": 70,
-    "order": 84,
+    "itemId": 84,
     "quantity": 5
   },
   {
@@ -761,7 +761,7 @@
     "isVeg": true,
     "name": "Kitkat Milkshake",
     "price": 60,
-    "order": 85,
+    "itemId": 85,
     "quantity": 5
   }
 ]

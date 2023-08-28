@@ -1,5 +1,5 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
-import 'package:canto_crave/admin/adminOrdersPage.dart';
+
 import 'package:canto_crave/pages/beverages_page.dart';
 import 'package:canto_crave/pages/bottomBar_page.dart';
 import 'package:canto_crave/pages/burgers&sandwiches_page.dart';
@@ -18,9 +18,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
-import 'admin/adminPage.dart';
-import 'admin/adminSearchPage.dart';
-import 'admin/editItemPage.dart';
 import 'cart_list_provider.dart';
 
 Future<void> main() async {
@@ -37,25 +34,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  // String _initialRoute = '';
-
-  String initialRoute = '';
-
     var user = FirebaseAuth.instance.currentUser;
-  // String getInitialRoute() {
-  //   var user = FirebaseAuth.instance.currentUser;
-  //   if (user != null) {
-  //     if (user.email?.trim() != 'tanmaykamleshjain@gmail.com') {
-  //       initialRoute = MyRoutes.bottomBar;
-  //     } else {
-  //       initialRoute = MyRoutes.adminPageRoute;
-  //     }
-  //   } else {
-  //     initialRoute = MyRoutes.welcomePageRoute;
-  //   }
-  //   return initialRoute;
-  // }
 
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -79,13 +58,9 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.chinesePageRoute: (context) => ChinesePage(),
           MyRoutes.beveragesRoute: (context) => BeveragesPage(),
           MyRoutes.rollsPageRoute: (context) => RollsCurriesPage(),
-          MyRoutes.adminPageRoute: (context) => AdminPage(),
-          MyRoutes.editItemPageRoute: (context) => EditItemPage(),
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
           MyRoutes.welcomePageRoute: (context) => DemoPage(),
-          MyRoutes.adminSearchPageRoute: (context) => AdminSearchPage(),
           MyRoutes.paymentPageRoute: (context) => PaymentPage(),
-          MyRoutes.adminOrdersPageRoute: (context) => AdminOrdersPage()
         },
         initialRoute: user != null ? MyRoutes.bottomBar
           : MyRoutes.welcomePageRoute

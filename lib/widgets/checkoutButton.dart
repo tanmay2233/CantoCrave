@@ -3,10 +3,12 @@ import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
 import '../cart_list_provider.dart';
+import '../routes/routes.dart';
 
 class CheckoutButton extends StatelessWidget {
   CheckoutButton({super.key});
 
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -15,12 +17,8 @@ class CheckoutButton extends StatelessWidget {
       Padding(
         padding: EdgeInsets.only(left: size.width*0.1, right: size.width*0.1),
         child: InkWell(
-            onTap: () async {
-              var orderId = (100000 + DateTime.now().millisecondsSinceEpoch % 900000)
-                .toString();
-              await value.placeOrder(orderId);
-              await value.uploadCartItems(orderId);
-              // Navigator.pushNamed(context, MyRoutes.paymentPageRoute);
+            onTap: () {
+              Navigator.pushNamed(context, MyRoutes.paymentPageRoute);
             },
             child: Container(
               alignment: Alignment.center,

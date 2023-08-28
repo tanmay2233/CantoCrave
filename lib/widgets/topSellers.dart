@@ -42,7 +42,7 @@ class TopSellers extends StatelessWidget {
           }
           // Filter documents based on item IDs
           var filteredDocs = snapshot.data!.docs
-              .where((doc) => ids.contains(doc.get('order'))).toList();
+              .where((doc) => ids.contains(doc.get('itemId'))).toList();
 
           return SizedBox(
             height: size.height * 0.25,
@@ -52,7 +52,7 @@ class TopSellers extends StatelessWidget {
                     crossAxisCount: 1),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  int availableQty = filteredDocs[index]['quantity'];
+                  int availableQty = filteredDocs[index]['quantity'].toInt();
                 return Padding(
                     padding: EdgeInsets.all(size.width * 0.018),
                     child: Container(
@@ -123,7 +123,7 @@ class TopSellers extends StatelessWidget {
                                           filteredDocs[index]['price'].toDouble(),
                                       image: filteredDocs[index]['image'],
                                       isVeg: filteredDocs[index]['isVeg'],
-                                      availableQty: availableQty,
+                                      availableQty: availableQty.toInt(),
                                       ),
                                 ],
                               )

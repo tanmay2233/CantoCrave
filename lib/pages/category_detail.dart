@@ -80,7 +80,7 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                       ),
                       itemCount: documents.length,
                       itemBuilder: (context, index) {
-                        int availableQty = documents[index]['quantity'];
+                        int availableQty = documents[index]['quantity'].toInt();
                         return Padding(
                           padding: EdgeInsets.all(size.width * 0.018),
                           child: Stack(

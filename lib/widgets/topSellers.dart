@@ -55,82 +55,103 @@ class TopSellers extends StatelessWidget {
                   int availableQty = filteredDocs[index]['quantity'].toInt();
                 return Padding(
                     padding: EdgeInsets.all(size.width * 0.018),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                              color: MyTheme.iconColor,
-                              width: size.height * 0.001),
-                          borderRadius:
-                              BorderRadius.circular(size.width * 0.05),
-                          gradient: LinearGradient(
-                              colors: [
-                                MyTheme.canvasDarkColor,
-                                MyTheme.canvasLightColor
-                              ],
-                              begin: AlignmentDirectional.bottomCenter,
-                              end: Alignment.topCenter)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image(
-                            image: NetworkImage(filteredDocs[index]['image']),
-                            height: size.height * 0.12,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                      child: Text(
-                                    filteredDocs[index]['name'],
-                                    maxLines: 3,
-                                    style: TextStyle(color: MyTheme.fontColor),
-                                  )),
-                                  Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.crop_square_sharp,
-                                        color: filteredDocs[index]['isVeg']
-                                            ? Colors.green
-                                            : const Color.fromARGB(
-                                                202, 243, 57, 44),
-                                        size: size.width * 0.06,
-                                      ),
-                                      Icon(Icons.circle,
+                    child: Stack(
+                      children: [Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: MyTheme.iconColor,
+                                width: size.height * 0.001),
+                            borderRadius:
+                                BorderRadius.circular(size.width * 0.05),
+                            gradient: LinearGradient(
+                                colors: [
+                                  MyTheme.canvasDarkColor,
+                                  MyTheme.canvasLightColor
+                                ],
+                                begin: AlignmentDirectional.bottomCenter,
+                                end: Alignment.topCenter)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image(
+                              image: NetworkImage(filteredDocs[index]['image']),
+                              height: size.height * 0.12,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                        child: Text(
+                                      filteredDocs[index]['name'],
+                                      maxLines: 3,
+                                      style: TextStyle(color: MyTheme.fontColor),
+                                    )),
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.crop_square_sharp,
                                           color: filteredDocs[index]['isVeg']
                                               ? Colors.green
                                               : const Color.fromARGB(
                                                   202, 243, 57, 44),
-                                          size: size.width * 0.024),
-                                    ],
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    '₹ ${filteredDocs[index]['price'].toInt()}',
-                                    style: const TextStyle(color: Colors.white),
-                                  ),
-                                  AddToCartButtonPage(
-                                      name: filteredDocs[index]['name'],
-                                      price:
-                                          filteredDocs[index]['price'].toDouble(),
-                                      image: filteredDocs[index]['image'],
-                                      isVeg: filteredDocs[index]['isVeg'],
-                                      availableQty: availableQty.toInt(),
-                                      ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
+                                          size: size.width * 0.06,
+                                        ),
+                                        Icon(Icons.circle,
+                                            color: filteredDocs[index]['isVeg']
+                                                ? Colors.green
+                                                : const Color.fromARGB(
+                                                    202, 243, 57, 44),
+                                            size: size.width * 0.024),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '₹ ${filteredDocs[index]['price'].toInt()}',
+                                      style: const TextStyle(color: Colors.white),
+                                    ),
+                                    AddToCartButtonPage(
+                                        name: filteredDocs[index]['name'],
+                                        price:
+                                            filteredDocs[index]['price'].toDouble(),
+                                        image: filteredDocs[index]['image'],
+                                        isVeg: filteredDocs[index]['isVeg'],
+                                        availableQty: availableQty.toInt(),
+                                        ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
+                      (filteredDocs[index]['quantity'] == 0)
+                                  ? Container(
+                                      height: double.infinity,
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                          color: const Color.fromARGB(
+                                                  255, 34, 9, 9)
+                                              .withOpacity(0.5)),
+                                      child: Align(
+                                        alignment: Alignment.center,
+                                        child: Text("Not Available",
+                                            style: TextStyle(
+                                                color: MyTheme.cardColor,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: size.width * 0.04)),
+                                      ),
+                                    )
+                                  : Container()
+                            ],
                     ));
                 } 
             )

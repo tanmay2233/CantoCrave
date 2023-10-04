@@ -20,12 +20,6 @@ class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _MobileNumberTextController =
       TextEditingController(text: "");
 
-  @override
-  void dispose() {
-    _NameTextController.dispose();
-    super.dispose();
-  }
-
   void addUserDetailsToFirebase(String name, String mobile) async {
     final userDetailRef = FirebaseFirestore.instance
         .collection('userDetail')
@@ -47,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
             gradient: LinearGradient(
                 colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor],
                 begin: Alignment.topCenter)),
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: Expanded(
@@ -154,7 +148,7 @@ class _ProfilePageState extends State<ProfilePage> {
               "Update/Add Personal Info",
               style: TextStyle(color: MyTheme.cardColor),
             ),
-            content: Container(
+            content: SizedBox(
               height: size.height * 0.22,
               child: Column(
                 children: [
@@ -258,9 +252,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     }
                   },
                   child: Text("No",
-                      style: TextStyle(
-                          color: MyTheme.fontColor,
-                          fontWeight: FontWeight.bold))),
+                    style: TextStyle(
+                      color: MyTheme.fontColor,
+                      fontWeight: FontWeight.bold))),
             ],
           );
         });

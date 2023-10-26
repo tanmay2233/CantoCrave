@@ -153,7 +153,8 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
                                                     .toDouble(),
                                                 image: documents[index]['image'],
                                                 isVeg: documents[index]['isVeg'],
-                                                availableQty: availableQty
+                                                availableQty: availableQty,
+                                                id: documents[index]['itemId'],
                                                 ),
                                           ],
                                         )

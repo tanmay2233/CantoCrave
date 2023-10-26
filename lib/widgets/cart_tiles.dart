@@ -159,7 +159,7 @@ class CartListTiles extends StatelessWidget {
                                                         onTap: () => value
                                                             .decreaseQuantity(
                                                                 cartItems[index]
-                                                                    ['name']),
+                                                                    ['itemId']),
                                                         child: Icon(
                                                             Icons.remove,
                                                             color: MyTheme
@@ -175,25 +175,24 @@ class CartListTiles extends StatelessWidget {
                                                     ),
                                                     InkWell(
                                                         onTap: () async {
+                                                          await value.getQuantity(
+                                                              cartItems[index]['itemId']);
                                                           if (await value.getQuantity(
-                                                                  cartItems[
-                                                                          index]
-                                                                      [
-                                                                      'name']) >
-                                                              cartItems[index][
-                                                                  'quantity']) {
-                                                            value.addToCart(CartModel(
+                                                              cartItems[index]['itemId']) >
+                                                              cartItems[index]['quantity']) 
+                                                            {
+                                                              value.addToCart(CartModel(
                                                                 cartItems[index]
                                                                     ['name'],
                                                                 cartItems[index]
                                                                     ['price'],
                                                                 cartItems[index]
-                                                                    [
-                                                                    'quantity'],
+                                                                    ['quantity'],
                                                                 cartItems[index]
                                                                     ['image'],
                                                                 cartItems[index]
-                                                                    ['isVeg']));
+                                                                    ['isVeg'],
+                                                                cartItems[index]['itemId']));
                                                           } else {
                                                             var snackBar = SnackBar(
                                                                 content: Text(

@@ -32,6 +32,7 @@ dependencies:
   google_sign_in: ^6.1.4
   upi_payment_qrcode_generator: ^1.4.0
   test_api: ^0.5.1
+  easy_upi_payment: ^0.1.6
 
 dev_dependencies:
   flutter_test:

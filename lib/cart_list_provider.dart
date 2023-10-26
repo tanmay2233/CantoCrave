@@ -2,7 +2,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'cart_model.dart';
@@ -11,20 +10,20 @@ class CartListProvider extends ChangeNotifier {
   List<CartModel> cartList = [];
   double cartTotal = 0;
 
-  Future<int> getQuantity(String itemName) async {
+  Future<int> getQuantity(int id) async {
     final QuerySnapshot<Map<String, dynamic>> querySnapshot =
         await FirebaseFirestore.instance.collection('Menu_Items').get();
 
     for (var docSnapshot in querySnapshot.docs) {
       final data = docSnapshot.data();
-      if (data != null && data['name'] == itemName) {
+      if (data['itemId'] == id) {
         return data['quantity'] ?? 0;
       }
     }
     return 0;
   }
 
-  Future<int> getItemQuantityFromCart(String itemName) async {
+  Future<int> getItemQuantityFromCart(int id) async {
     final user = _auth.currentUser;
 
     if (user != null) {
@@ -38,19 +37,17 @@ class CartListProvider extends ChangeNotifier {
             List<Map<String, dynamic>>.from(cartData?['items'] ?? []);
 
         final existingCartItem = cartItems.firstWhereOrNull(
-          (item) => item['name'] == itemName,
+          (item) => item['itemId'] == id,
         );
 
         if (existingCartItem != null) {
-          return existingCartItem[
-              'quantity']; 
+          return existingCartItem['quantity'];
         }
       }
     }
 
-    return 0; 
+    return 0;
   }
-
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -61,7 +58,7 @@ class CartListProvider extends ChangeNotifier {
       if (user != null) {
         final cartRef = _firestore.collection('cart').doc(user.uid);
         final cartItem =
-            CartModel(model.name, model.price, 1, model.image, model.isVeg);
+            CartModel(model.name, model.price, 1, model.image, model.isVeg, model.id);
 
         final cartData = await cartRef.get();
         List<Map<String, dynamic>> cartItems = [];
@@ -73,7 +70,7 @@ class CartListProvider extends ChangeNotifier {
         }
 
         final existingCartItemIndex =
-            cartItems.indexWhere((item) => item['name'] == model.name);
+            cartItems.indexWhere((item) => item['itemId'] == model.id);
 
         if (existingCartItemIndex != -1) {
           cartItems[existingCartItemIndex]['quantity'] += 1;
@@ -87,15 +84,15 @@ class CartListProvider extends ChangeNotifier {
         final updatedCartItems =
             updatedCartData.data()?['items'] as List<dynamic>;
 
-        notifyListeners(); 
+        notifyListeners();
       }
-    } catch (e) {
-      print("Error adding to cart: $e");
+    } 
+    catch (e) {
+      // print("Error adding to cart: $e");
     }
   }
 
-
-  Future<void> decreaseQuantity(String name) async {
+  Future<void> decreaseQuantity(int id) async {
     final user = _auth.currentUser;
     if (user != null) {
       final cartRef = _firestore.collection('cart').doc(user.uid);
@@ -108,7 +105,7 @@ class CartListProvider extends ChangeNotifier {
             List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
 
         final existingCartItemIndex =
-            cartItems.indexWhere((item) => item['name'] == name);
+            cartItems.indexWhere((item) => item['itemId'] == id);
 
         if (existingCartItemIndex != -1) {
           final existingCartItem = cartItems[existingCartItemIndex];
@@ -128,8 +125,7 @@ class CartListProvider extends ChangeNotifier {
     }
   }
 
-
-  Future<bool> checkCartItem(String itemName) async {
+  Future<bool> checkCartItem(int id) async {
     try {
       final user = FirebaseAuth.instance.currentUser;
       if (user != null) {
@@ -143,7 +139,7 @@ class CartListProvider extends ChangeNotifier {
               List<Map<String, dynamic>>.from(cartData?['items'] ?? []);
 
           final existingCartItem = cartItems.firstWhereOrNull(
-            (item) => item['name'] == itemName,
+            (item) => item['itemId'] == id,
           );
 
           if (existingCartItem != null) {
@@ -152,12 +148,11 @@ class CartListProvider extends ChangeNotifier {
         }
       }
     } catch (e) {
-      print("Error checking cart item: $e");
+      // print("Error checking cart item: $e");
     }
 
     return false;
   }
-
 
   Future<List<Map<String, dynamic>>> getCartItems() async {
     final FirebaseAuth auth = FirebaseAuth.instance;
@@ -239,10 +234,9 @@ class CartListProvider extends ChangeNotifier {
         await _firestore.collection('newOrders').add(orderData);
       }
     } catch (e) {
-      print("Error placing order: $e");
+      // print("Error placing order: $e");
     }
   }
-
 
   Future<bool> updateMenuItemsAfterOrder(BuildContext context) async {
     bool allItemsAvailbale = true;
@@ -258,31 +252,33 @@ class CartListProvider extends ChangeNotifier {
     final menuItems = menuSnapshot.docs;
 
     // Iterate through user's cart items
-    if(cartData!=null && cartData['items']!= null){
+    if (cartData != null && cartData['items'] != null) {
       for (final cartItem in cartData['items']) {
-      final cartItemName = cartItem['name'];
-      final cartItemQuantity = cartItem['quantity'];
+        final cartItemName = cartItem['name'];
+        final cartItemQuantity = cartItem['quantity'];
 
-      final menuItem = menuItems.firstWhere(
-        (item) => item['name'] == cartItemName,
-      );
-      final menuItemQuantity = menuItem['quantity'];
-
-      // Reduce the menu item's quantity
-      final updatedMenuItemQuantity = menuItemQuantity - cartItemQuantity;
-      
-      if (updatedMenuItemQuantity < 0) {
-        var snackBar = SnackBar(
-          content:
-            Text("Desired Quantity of ${cartItem['name']} Not Available"),
-          duration: const Duration(seconds: 3),
+        final menuItem = menuItems.firstWhere(
+          (item) => item['name'] == cartItemName,
         );
-        allItemsAvailbale = false;
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-        return false;
+        final menuItemQuantity = menuItem['quantity'];
+
+        // Reduce the menu item's quantity
+        final updatedMenuItemQuantity = menuItemQuantity - cartItemQuantity;
+
+        if (updatedMenuItemQuantity < 0) {
+          var snackBar = SnackBar(
+            content:
+                Text("Desired Quantity of ${cartItem['name']} Not Available"),
+            duration: const Duration(seconds: 3),
+          );
+          allItemsAvailbale = false;
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          return false;
+        }
       }
-    }}
-    if (allItemsAvailbale == true && (cartData!=null && cartData['items']!= null)) {
+    }
+    if (allItemsAvailbale == true &&
+        (cartData != null && cartData['items'] != null)) {
       for (final cartItem in cartData['items']) {
         final cartItemName = cartItem['name'];
         final cartItemQuantity = cartItem['quantity'];
@@ -306,10 +302,9 @@ class CartListProvider extends ChangeNotifier {
     return false;
   }
 
-
   Future<void> placeOrderAndUploadItems(BuildContext context) async {
     var orderId =
-      (100000 + DateTime.now().millisecondsSinceEpoch % 900000).toString();
+        (100000 + DateTime.now().millisecondsSinceEpoch % 900000).toString();
 
     final FirebaseAuth auth = FirebaseAuth.instance;
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -320,18 +315,15 @@ class CartListProvider extends ChangeNotifier {
       final cartData = await cartRef.get();
       if (cartData.exists) {
         final cartItems =
-          List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
-        if(cartItems.length > 0){
+            List<Map<String, dynamic>>.from(cartData.get('items') ?? []);
+        if (cartItems.length > 0) {
           bool allItemsAvailbale = await updateMenuItemsAfterOrder(context);
-          if(allItemsAvailbale){
+          if (allItemsAvailbale) {
             await placeOrder(orderId);
             await uploadCartItems(orderId);
           }
         }
       }
-  }
-
-
-  
+    }
   }
 }

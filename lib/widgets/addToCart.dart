@@ -10,14 +10,15 @@ class AddToCartButtonPage extends StatefulWidget {
   final String name, image;
   double price;
   bool isVeg;
-  int availableQty;
+  int availableQty, id;
 
   AddToCartButtonPage(
       {required this.name,
       required this.price,
       required this.image,
       required this.isVeg,
-      required this.availableQty});
+      required this.availableQty,
+      required this.id});
 
   @override
   State<AddToCartButtonPage> createState() => _AddToCartButtonPageState();
@@ -35,18 +36,18 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FutureBuilder<bool>(
-                future: value.checkCartItem(widget.name),
+                future: value.checkCartItem(widget.id),
                 builder: (context, snapshot) {
                   final itemExists = snapshot.data ?? false;
                   if (itemExists) {
                     return Row(children: [
                       IconButton(
                           onPressed: () async =>
-                              await value.decreaseQuantity(widget.name),
+                              await value.decreaseQuantity(widget.id),
                           icon: Icon(Icons.remove_circle_outline_sharp,
                               color: Colors.white)),
                       FutureBuilder(
-                        future: value.getItemQuantityFromCart(widget.name),
+                        future: value.getItemQuantityFromCart(widget.id),
                         builder: (context, snapshot) {
                           final quantity = snapshot.data ?? 0;
 
@@ -60,18 +61,20 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                       ),
                       IconButton(
                           onPressed: () async =>
-                              await value.decreaseQuantity(widget.name),
+                              await value.decreaseQuantity(widget.id),
                           icon: IconButton(
                               onPressed: () async {
                                 if (widget.availableQty >
                                     await value
-                                        .getItemQuantityFromCart(widget.name)) {
+                                        .getItemQuantityFromCart(widget.id)) {
                                   await value.addToCart(CartModel(
                                       widget.name,
                                       widget.price.toDouble(),
                                       1,
                                       widget.image,
-                                      widget.isVeg));
+                                      widget.isVeg,
+                                      widget.id
+                                      ));
                                 } else {
                                   var snackBar = SnackBar(
                                       content: Text(
@@ -104,6 +107,7 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                           1,
                           widget.image,
                           widget.isVeg,
+                          widget.id
                         ));
                       },
                       style: ElevatedButton.styleFrom(

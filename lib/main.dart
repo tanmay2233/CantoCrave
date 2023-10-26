@@ -26,7 +26,6 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatefulWidget {
 
   @override
@@ -34,8 +33,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    var user = FirebaseAuth.instance.currentUser;
+  var user = FirebaseAuth.instance.currentUser;
 
+  @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [

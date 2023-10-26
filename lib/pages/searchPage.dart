@@ -160,7 +160,8 @@ class _SearchPageState extends State<SearchPage> {
                                     price: allItems[index]['price'].toDouble(), 
                                     image: allItems[index]['image'], 
                                     isVeg: allItems[index]['isVeg'],
-                                    availableQty: availableQty)
+                                    availableQty: availableQty,
+                                    id: allItems[index]['itemId'])
                                 ])),
                           ),
                         ),

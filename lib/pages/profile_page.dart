@@ -10,6 +10,8 @@ import '../Theme/themes.dart';
 import '../routes/routes.dart';
 
 class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
+
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }

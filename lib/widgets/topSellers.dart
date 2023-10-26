@@ -125,6 +125,7 @@ class TopSellers extends StatelessWidget {
                                         image: filteredDocs[index]['image'],
                                         isVeg: filteredDocs[index]['isVeg'],
                                         availableQty: availableQty.toInt(),
+                                        id: filteredDocs[index]['itemId'],
                                         ),
                                   ],
                                 )

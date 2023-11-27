@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sort_child_properties_last
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, sort_child_properties_last, use_build_context_synchronously
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Theme/themes.dart';
@@ -12,6 +12,7 @@ class AddToCartButtonPage extends StatefulWidget {
   bool isVeg;
   int availableQty, id;
 
+  // ignore: use_key_in_widget_constructors
   AddToCartButtonPage(
       {required this.name,
       required this.price,
@@ -44,7 +45,7 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                       IconButton(
                           onPressed: () async =>
                               await value.decreaseQuantity(widget.id),
-                          icon: Icon(Icons.remove_circle_outline_sharp,
+                          icon: const Icon(Icons.remove_circle_outline_sharp,
                               color: Colors.white)),
                       FutureBuilder(
                         future: value.getItemQuantityFromCart(widget.id),
@@ -53,7 +54,7 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
 
                           return Text(
                             quantity.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           );
@@ -79,14 +80,14 @@ class _AddToCartButtonPageState extends State<AddToCartButtonPage> {
                                   var snackBar = SnackBar(
                                       content: Text(
                                           'No More ${widget.name} Available'),
-                                      duration: Duration(seconds: 2),
+                                      duration: const Duration(seconds: 2),
                                       action: SnackBarAction(
                                           label: '', onPressed: () {}));
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);
                                 }
                               },
-                              icon: Icon(Icons.add_circle_outline_sharp,
+                              icon: const Icon(Icons.add_circle_outline_sharp,
                                   color: Colors.white))),
                     ]);
                   } else {

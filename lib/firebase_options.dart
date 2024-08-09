@@ -51,9 +51,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAQv1lc24xqtZ4gA6Pt1aLxfYcgCHQOA4M',
-    appId: '1:1080802022131:android:b80ef48016203bd9fbdd86',
+    appId: '1:1080802022131:android:e332d9efbaa75757fbdd86',
     messagingSenderId: '1080802022131',
     projectId: 'cantocrave-9532a',
+    databaseURL: 'https://cantocrave-9532a-default-rtdb.firebaseio.com',
     storageBucket: 'cantocrave-9532a.appspot.com',
   );
 
@@ -62,7 +63,9 @@ class DefaultFirebaseOptions {
     appId: '1:1080802022131:ios:841ee6db95b869c3fbdd86',
     messagingSenderId: '1080802022131',
     projectId: 'cantocrave-9532a',
+    databaseURL: 'https://cantocrave-9532a-default-rtdb.firebaseio.com',
     storageBucket: 'cantocrave-9532a.appspot.com',
+    androidClientId: '1080802022131-5434stjbhnk96c3qafi57ioavlvon312.apps.googleusercontent.com',
     iosClientId: '1080802022131-074qmkv3hmar0pc1oe5l7od55qubbhqs.apps.googleusercontent.com',
     iosBundleId: 'com.example.flutterFirebase',
   );

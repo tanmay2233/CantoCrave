@@ -1,10 +1,13 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
+import 'package:canto_crave/Theme/themes.dart';
+import 'package:canto_crave/firebase_options.dart';
 import 'package:canto_crave/pages/beverages_page.dart';
 import 'package:canto_crave/pages/bottomBar_page.dart';
 import 'package:canto_crave/pages/burgers&sandwiches_page.dart';
 import 'package:canto_crave/pages/cart_page.dart';
 import 'package:canto_crave/pages/chinese_page.dart';
+import 'package:canto_crave/pages/pay.dart';
 import 'package:canto_crave/pages/paymentPage.dart';
 import 'package:canto_crave/pages/welcomePage.dart';
 import 'package:canto_crave/pages/home_page.dart';
@@ -22,8 +25,10 @@ import 'cart_list_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(MyApp());
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(SafeArea(child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -45,6 +50,7 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'elMessiri',
+          primaryColor: Colors.transparent
         ),
         title: 'Flutter Demo',
         routes: {
@@ -61,6 +67,7 @@ class _MyAppState extends State<MyApp> {
           MyRoutes.myOrdersPageRoute: (context) => MyOrdersPage(),
           MyRoutes.welcomePageRoute: (context) => DemoPage(),
           MyRoutes.paymentPageRoute: (context) => PaymentPage(),
+          MyRoutes.payRoute: (context) => Screen()
         },
         initialRoute: user != null ? MyRoutes.bottomBar
           : MyRoutes.welcomePageRoute

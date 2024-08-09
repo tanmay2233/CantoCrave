@@ -2,6 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../Theme/themes.dart';
 import '../widgets/addToCart.dart';
@@ -33,11 +34,18 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
       {required String title, required String category}) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Theme.of(context).primaryColor
+    ),
+      child: SafeArea(
+        child: Scaffold(
       appBar: AppBar(
         title: Text(
           widget.title,
           style: TextStyle(color: MyTheme.fontColor),
         ),
+        iconTheme: IconThemeData(color: MyTheme.iconColor),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -193,6 +201,6 @@ class _CategoryDetailPageState extends State<CategoryDetailPage> {
           ),
         ),
       ),
-    );
+    ))));
   }
 }

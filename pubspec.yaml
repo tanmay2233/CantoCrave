@@ -10,7 +10,7 @@ environment:
   sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
-  velocity_x: 4.1.0
+  velocity_x: ^4.1.2
   flutter:
     sdk: flutter
   collection: ^1.17.1 
@@ -19,25 +19,28 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+  http: ^1.2.1
+  razorpay_flutter: ^1.3.7
+  fluttertoast: ^8.2.6
   cupertino_icons: ^1.0.2
-  google_fonts: ^5.1.0
+  google_fonts: ^6.2.1
   card_swiper: ^3.0.1
-  firebase_core: ^2.15.0
-  firebase_auth: ^4.7.2
+  firebase_core: ^2.28.0
+  firebase_auth: ^4.19.0
   flutter_layout_grid: ^2.0.4
   firebase_database: ^10.2.4
-  cloud_firestore: ^4.9.0
+  cloud_firestore: ^4.15.9
   firebase_storage: ^11.2.5
   intl: ^0.18.1
-  google_sign_in: ^6.1.4
+  google_sign_in: ^5.0.0
   upi_payment_qrcode_generator: ^1.4.0
-  test_api: ^0.5.1
-  easy_upi_payment: ^0.1.6
+  test_api: ^0.6.1
+  sign_in_button: ^3.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter  
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   fonts:
@@ -52,6 +55,7 @@ flutter:
     - images/food_items/burger.png
     - images/food_items/Maggie-Omelette.jpeg
     - images/food_items/beverages.png
+    - images/food_items/noodles.png
     - images/food_items/chinese.png
     - images/food_items/rolls.png
     - images/1.png

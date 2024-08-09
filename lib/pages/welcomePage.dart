@@ -1,7 +1,10 @@
 import 'package:canto_crave/cart_list_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sign_in_button/sign_in_button.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../Theme/themes.dart';
 import '../routes/routes.dart';
@@ -16,11 +19,44 @@ class DemoPage extends StatefulWidget {
 
 class _DemoPageState extends State<DemoPage> {
   late PageController _pageController;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  User? _user;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: 0);
+    _auth.authStateChanges().listen((event) {
+      setState(() {
+        _user = event;
+      });
+    });
+  }
+
+  Future<void> _handleGoogleSignIn() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser == null) {
+        return; // The user canceled the sign-in
+      }
+
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      UserCredential userCredential =
+          await _auth.signInWithCredential(credential);
+
+      if (userCredential.user != null) {
+        Navigator.pushReplacementNamed(context, MyRoutes.bottomBar);
+      }
+    } catch (error) {
+      print("Error during Google sign-in: $error");
+    }
   }
 
   void _goToNextPage() {
@@ -33,6 +69,7 @@ class _DemoPageState extends State<DemoPage> {
     var size = MediaQuery.of(context).size;
     String _upperText = '';
     String _lowerText = '';
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -46,97 +83,59 @@ class _DemoPageState extends State<DemoPage> {
             controller: _pageController,
             itemCount: 3,
             itemBuilder: (context, index) {
-              if(index == 0){
+              if (index == 0) {
                 _upperText = "Welcome to CantoCrave";
-                _lowerText = "Beat The Crowd & Order Your Favourite Snacks From Your Room";
-              }
-              else if(index == 1){
+                _lowerText =
+                    "Beat The Crowd & Order Your Favourite Snacks From Your Room";
+              } else if (index == 1) {
                 _upperText = "Collect Your Food From Canteen";
                 _lowerText = "Let's SignIn Now..";
               }
-              return (index < 2) ? Column(
-                children: [
-                  SizedBox(height: size.height * 0.02),
-                  Text(
-                    _upperText,
-                    style: TextStyle(
-                      color: MyTheme.cardColor, fontSize: size.width * 0.06),
-                      textAlign: TextAlign.center
-                  ),
-                  Image.asset("images/${index + 1}.png"),
-                  SizedBox(height: size.height * 0.03),
-                  Padding(
-                    padding: EdgeInsets.all(size.width * 0.04),
-                    child: Text(
-                      _lowerText,
-                      style: TextStyle(
-                        color: Colors.white, fontSize: size.width * 0.04),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  SizedBox(height: size.height * 0.02),
-                  InkWell(
-                    onTap: () {
-                      _goToNextPage();
-                    },
-                    child: Icon(CupertinoIcons.right_chevron,
-                        color: MyTheme.cardColor, size: size.width * 0.1),
-                  )
-                ],
-              )
-              :
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset('images/logo.png',
-                    height: size.height*0.25,),
-                  Consumer<CartListProvider>(
-                    builder: (context, value, child) => 
-                    SizedBox(
-                      
-                      width: size.width*0.55,
-                      child: ElevatedButton(onPressed: () async {
-                        try {
-                          showDialog(
-                            context: context,
-                            barrierDismissible: false,
-                            builder: (BuildContext context) {
-                              return Center(
-                                child: CircularProgressIndicator(color: MyTheme.cardColor),
-                              );
-                            },
-                          );
-                          final user = await AuthService().signInWithGoogle();
-                          Navigator.pop(context); 
-                          if (user != null) {
-                            Navigator.pushReplacementNamed(context, MyRoutes.bottomBar);
-                          } 
-                        } 
-                        catch (e) {
-                        }
-                      },
-                      
-                      style: ElevatedButton.styleFrom(
-                        side: BorderSide(color: MyTheme.cardColor, 
-                          width: size.width*0.006),
-                        backgroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(size.width*0.05)
+              return (index < 2)
+                  ? Column(
+                      children: [
+                        SizedBox(height: size.height * 0.02),
+                        Text(_upperText,
+                            style: TextStyle(
+                                color: MyTheme.cardColor,
+                                fontSize: size.width * 0.06),
+                            textAlign: TextAlign.center),
+                        Image.asset("images/${index + 1}.png"),
+                        SizedBox(height: size.height * 0.03),
+                        Padding(
+                          padding: EdgeInsets.all(size.width * 0.04),
+                          child: Text(_lowerText,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: size.width * 0.04),
+                              textAlign: TextAlign.center),
                         ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Image.asset("images/google_logo.png", height: size.height*0.03,),
-                          Text("Login with Google", style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: MyTheme.canvasDarkColor),),
-                        ],
-                      )),
-                    ),
-                  ),
-                ],
-              );
+                        SizedBox(height: size.height * 0.02),
+                        InkWell(
+                          onTap: () {
+                            _goToNextPage();
+                          },
+                          child: Icon(CupertinoIcons.right_chevron,
+                              color: MyTheme.cardColor, size: size.width * 0.1),
+                        )
+                      ],
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset(
+                          'images/logo.png',
+                          height: size.height * 0.25,
+                        ),
+                        SizedBox(
+                            height: 40,
+                            child: SignInButton(
+                              Buttons.google,
+                              onPressed: _handleGoogleSignIn,
+                              text: "Sign in with Google",
+                            ))
+                      ],
+                    );
             },
           ),
         ),

@@ -40,7 +40,7 @@ class CartPage extends StatelessWidget {
               return BottomAppBar(
                 elevation: 0.0,
                 color: MyTheme.canvasDarkColor,
-                child: CheckoutButton(),
+                child: CheckoutButton(total),
               );
             }
             else{

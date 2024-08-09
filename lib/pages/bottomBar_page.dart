@@ -4,6 +4,7 @@ import 'package:canto_crave/pages/profile_page.dart';
 import 'package:canto_crave/pages/searchPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../Theme/themes.dart';
@@ -36,89 +37,101 @@ class _BottomBarPage extends State<BottomBarPage> {
   var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset("images/logo.png", width: size.width*0.1),
-            Text(_buttonList[_selectedButton]['title'], textAlign: TextAlign.center),
-
-            // Cart Icon
-
-            Consumer<CartListProvider>(
-              builder: (context, value, child) => 
-              FutureBuilder(
-                future: value.getCartTotal(),
-                builder: (context, snapshot) {
-                  var qty = snapshot.data ?? 0;
-                if(qty > 0){
-                  return Badge(
-                    alignment: Alignment.topRight,
-                    backgroundColor: MyTheme.cardColor,
-                    textColor: MyTheme.canvasDarkColor,
-                    label: FutureBuilder(
-                      future: value.getCartItems(),
-                      builder: (context, snapshot) {
-                        var arr = snapshot.data ?? [];
-                      return Text(arr.length.toString());
-                      }),
-                    child: Padding(
-                      padding: EdgeInsets.all(size.width*0.01),
-                      child: InkWell(
-                        onTap: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
-                        child: Icon(CupertinoIcons.cart)),
-                    )
-                    );
-                }
-                else{
-                  return InkWell(
-                    onTap: () =>
-                        Navigator.pushNamed(context, MyRoutes.cartRoute),
-                    child: Icon(CupertinoIcons.cart));
-                }
-                },
-              ))
-          ]
-        ),  
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor]),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+    value: SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Theme.of(context).primaryColor
+    ),
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset("images/logo.png", width: size.width*0.1),
+                Text(_buttonList[_selectedButton]['title'], textAlign: TextAlign.center, 
+                style: const TextStyle(color: Colors.white),),
+        
+                // Cart Icon
+        
+                Consumer<CartListProvider>(
+                  builder: (context, value, child) => 
+                  FutureBuilder(
+                    future: value.getCartTotal(),
+                    builder: (context, snapshot) {
+                      var qty = snapshot.data ?? 0;
+                    if(qty > 0){
+                      return Badge(
+                        alignment: Alignment.topRight,
+                        backgroundColor: MyTheme.cardColor,
+                        textColor: MyTheme.canvasDarkColor,
+                        label: FutureBuilder(
+                          future: value.getCartItems(),
+                          builder: (context, snapshot) {
+                            var arr = snapshot.data ?? [];
+                          return Text(arr.length.toString());
+                          }),
+                        child: Padding(
+                          padding: EdgeInsets.all(size.width*0.01),
+                          child: InkWell(
+                            onTap: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+                            child: const Icon(CupertinoIcons.cart, 
+                            color: Colors.white,)),
+                        )
+                        );
+                    }
+                    else{
+                      return InkWell(
+                        onTap: () =>
+                            Navigator.pushNamed(context, MyRoutes.cartRoute),
+                        child: Icon(CupertinoIcons.cart, 
+                        color: MyTheme.iconColor,
+                        ));
+                    }
+                    },
+                  ))
+              ]
+            ),  
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [MyTheme.canvasLightColor, MyTheme.canvasDarkColor]),
+              ),
+            ),  
+          ),    
+          body: _buttonList[_selectedButton]['page'],
+          bottomNavigationBar: BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home,
+                    size: size.width * 0.07),
+                label: "Home"
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.search,
+                  size: size.width * 0.07),
+                label: "Search",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.account_box,
+                    size: size.width * 0.07),
+                label: "Profile"
+              ),
+            ],
+            currentIndex: _selectedButton,
+            onTap: _changeButton,
+            backgroundColor: MyTheme.canvasDarkColor,
+            selectedIconTheme: IconThemeData(
+              color: MyTheme.selectedIconColor,
+            ),
+            unselectedIconTheme: IconThemeData(color: MyTheme.unselectedIconColor),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            selectedItemColor: MyTheme.selectedIconColor,
+            unselectedItemColor: MyTheme.unselectedIconColor,
           ),
-        ),  
-      ),    
-      body: _buttonList[_selectedButton]['page'],
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home,
-                size: size.width * 0.07),
-            label: "Home"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.search,
-              size: size.width * 0.07),
-            label: "Search",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box,
-                size: size.width * 0.07),
-            label: "Profile"
-          ),
-        ],
-        currentIndex: _selectedButton,
-        onTap: _changeButton,
-        backgroundColor: MyTheme.canvasDarkColor,
-        selectedIconTheme: IconThemeData(
-          color: MyTheme.selectedIconColor,
         ),
-        unselectedIconTheme: IconThemeData(color: MyTheme.unselectedIconColor),
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedItemColor: MyTheme.selectedIconColor,
-        unselectedItemColor: MyTheme.unselectedIconColor,
       ),
-    );
+    ));
   }
 }
